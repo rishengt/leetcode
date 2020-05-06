@@ -51,7 +51,7 @@ public class JumpGame {
             if(end<i) return false; /**end 没有更新证明出现了0，返回fasle*/
             maxPosition = Math.max(maxPosition, nums[i]+i);
             if( i == end){
-                end = maxPosition;
+                end = maxPosition;/**迭代一直是贪心的关键呢*/
             }
         }
         return maxPosition>=nums.length-1;
