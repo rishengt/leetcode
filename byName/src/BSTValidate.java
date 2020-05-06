@@ -31,9 +31,9 @@ import java.util.List;
  * Output: false
  * Explanation: The root node's value is 5 but its right child's value is 4.
  */
-public class ValidateBST {
+public class BSTValidate {
     public static void main(String[] args) {
-        ValidateBST bst = new ValidateBST();
+        BSTValidate bst = new BSTValidate();
         TreeNode root = new TreeNode(5);
         root.left = new TreeNode(1);
         root.right = new TreeNode(4);
