@@ -30,7 +30,8 @@ public class Isomorphic {
         System.out.println(new Isomorphic().isIsomorphic("egg", "add"));
         System.out.println(new Isomorphic().isIsomorphic("foo", "bar"));
         System.out.println(new Isomorphic().isIsomorphic("paper", "title"));
-        //System.out.println(null.equals(null));
+        //System.out.println(null.equals(null));不行，不信你试试
+        //Objects.equals(xx , xx) 看大神的评论在word pattern 那题
     }
 
     /**
