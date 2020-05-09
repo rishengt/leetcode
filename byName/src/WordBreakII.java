@@ -50,7 +50,7 @@ public class WordBreakII {
     public List<String> dfs(String s, int start, HashSet<String> set, HashMap<Integer, List<String>> map){/***这里每一个细节都要好好记住，每一一遍不过分吧。。。*/
         List<String> list = new ArrayList<>();
         if(map.containsKey(start)) return map.get(start);
-        if(start == s.length()) list.add("");
+        if(start == s.length()) list.add("");/**精妙绝伦*/
         for(int end = start+1; end<=s.length(); end++){
             if(set.contains(s.substring(start,end))){
                 List<String> temp = dfs(s,end,set,map);

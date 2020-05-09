@@ -41,7 +41,7 @@ public class WordBreak {
         return backtrack(s,new HashSet<>(wordDict),0);
     }
 
-    public boolean backtrack(String s, HashSet<String> set, int start){
+    public boolean backtrack(String s, HashSet<String> set, int start){/**要截取某一段的时候才给backtrack一个参数*/
         if(start == s.length()) return true;
         for(int i = start+1; i<=s.length(); i++){
             if(set.contains(s.substring(start,i))&&backtrack(s,set,i)) return true;
@@ -50,7 +50,7 @@ public class WordBreak {
     }
 
 
-    /******************************************************************************************************************/
+    /*********************************************这种算法有个testcase过不了*************************************************/
     public boolean wordBreakII(String s, List<String> wordDict){
         return dfs(s,new HashSet<>(wordDict),0);
     }

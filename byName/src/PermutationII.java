@@ -19,7 +19,7 @@ import java.util.List;
 public class PermutationII {
 
     public static void main(String[] args) {
-        List<List<Integer>> ans = new PermutationII().permuteUnique(new int[]{1,1,3});
+        List<List<Integer>> ans = new PermutationII().permuteUnique(new int[]{1,1,2});
         System.out.println(ans);
     }
     public List<List<Integer>> permuteUnique(int[] nums){
