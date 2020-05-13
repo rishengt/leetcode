@@ -47,11 +47,38 @@
 public class WildCardMatching {
     public static void main(String[] args) {
         System.out.println(new WildCardMatching().isMatch("acdcb","a*c?b"));//应该是false
+        System.out.println(new WildCardMatching().isMatch("aa","*"));//应该是true
+        System.out.println(new WildCardMatching().isMatchII("acdcb","a*c?b"));
+        System.out.println(new WildCardMatching().isMatchII("aa","*"));//应该是true
+    }
+
+    public boolean isMatchII(String s, String p) {
+        boolean[][] dp = new boolean[s.length() + 1][p.length() + 1];
+        dp[s.length()][p.length()] = true;
+        for (int i = s.length(); i >= 0; i--) {
+            for (int j = p.length(); j >= 0; j--) {
+                if (i == s.length() && j == p.length())
+                    continue;
+//                boolean first_match;
+//                if(i>=s.length() || j>=p.length()){
+//                    first_match = false;
+//                }else{
+                //相比之前增加了判断是否等于 *
+                boolean first_match = (i < s.length() && j < p.length() && (p.charAt(j) == s.charAt(i) || p.charAt(j) == '?' || p.charAt(j) == '*'));
+//                }
+                    if (j < p.length() && p.charAt(j) == '*') {
+                        dp[i][j] = first_match && dp[i + 1][j] || dp[i][j + 1];
+                    } else {
+                        dp[i][j] = first_match && dp[i + 1][j + 1];
+                    }
+                }
+            }
+        return dp[0][0];
     }
 
     public boolean isMatch(String s, String p){/**这种写法不行，acdcb， a*c?b过不了*/
         if(p.isEmpty() || s.isEmpty()) return s.isEmpty();
-        boolean first_Match = !s.isEmpty()&&(p.charAt(0)==s.charAt(0) || p.charAt(0) == '?'||p.charAt(0) =='*');
+        boolean first_Match = !p.isEmpty()&&!s.isEmpty()&&(p.charAt(0)==s.charAt(0) || p.charAt(0) == '?'||p.charAt(0) =='*');
         if(p.length()>=1  && p.charAt(0) == '*'){
             return isMatch(s.substring(1),p)&&first_Match || isMatch(s, p.substring(1));
         } else {

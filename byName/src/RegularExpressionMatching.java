@@ -56,13 +56,11 @@ public class RegularExpressionMatching {
         boolean[][] dp = new boolean[s.length()+1][pattern.length()+1];
         dp[s.length()][pattern.length()] = true;
         for(int i = s.length(); i>=0; i--){
-            for(int j = pattern.length()-1; j>=0; j--){
-                boolean first_match;
-                if(i>=s.length()){/**为了防止index out of bound*/
-                    first_match = false;
-                }else{
-                    first_match = s.charAt(i) == pattern.charAt(j) || pattern.charAt(j) == '.';
-                }
+            for(int j = pattern.length();j>=0; j--){
+                /**因为上面已经把这种情况初始化了， 直接continue*/
+                if(i == s.length() && j == pattern.length()) continue;
+                /**记住一定要给i和j一个index判断不然会index out of bound*/
+                boolean first_match = i<s.length() && j< pattern.length() && (s.charAt(i) == pattern.charAt(j) || pattern.charAt(j) == '.');
                 if(j+1< pattern.length() && pattern.charAt(j+1) == '*'){
                     dp[i][j] = first_match && dp[i+1][j] || dp[i][j+2];/**忘了first_match就错了*/
                 }else{
@@ -72,6 +70,9 @@ public class RegularExpressionMatching {
         }
         return dp[0][0];
     }
+
+/**************************************************递归写法好理解一点******************************************************************************/
+
     public boolean isMatch(String s, String pattern){
         if(pattern.length() == 0) return s.length() == 0;
         boolean first_match = s.length()!=0/**这个判断条件细啊， 防止index out of bound*/ && (s.charAt(0) == pattern.charAt(0) || pattern.charAt(0) == '.');
