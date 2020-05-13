@@ -27,6 +27,7 @@ public class BestTimetoBuyandSellStockIV {
     }
 
     public int maxProfid(int[] prices, int k){
+        if(prices.length == 0) return 0;
         int[][][] dp = new int[prices.length][k+1][2];
         for(int i = 0; i< prices.length; i++){
             for(int j = k; j>=1; j--){

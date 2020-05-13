@@ -55,7 +55,7 @@ public class RegularExpressionMatching {
     }
     public boolean isMatch(String s, String pattern){
         if(pattern.length() == 0) return s.length() == 0;
-        boolean first_match = (s.length()!=0 && (s.charAt(0) == pattern.charAt(0) || pattern.charAt(0) == '.'));
+        boolean first_match = s.length()!=0/**这个判断条件细啊*/ && (s.charAt(0) == pattern.charAt(0) || pattern.charAt(0) == '.');
         if(pattern.length()>=2 && pattern.charAt(1) == '*'){
             return (first_match && isMatch(s.substring(1), pattern)) || isMatch(s,pattern.substring(2));
         } else{

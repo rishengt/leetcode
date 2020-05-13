@@ -53,7 +53,7 @@ public class HouseRobber {
     }
 
     public int dfs(int[] nums, int start){
-        if(start>=nums.length)return 0;/**函数出口难寻，哎*/
+        if(start>=nums.length) return 0;/**函数出口难寻，哎*/
         int res = Math.max(dfs(nums,start+1), nums[start]+dfs(nums,start+2));
         return res;
     }

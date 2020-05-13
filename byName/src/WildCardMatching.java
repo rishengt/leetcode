@@ -46,11 +46,21 @@
  */
 public class WildCardMatching {
     public static void main(String[] args) {
-        System.out.println(new WildCardMatching().isMatch("acdcb","*?bc"));
+        System.out.println(new WildCardMatching().isMatch("acdcb","a*c?b"));//应该是false
+    }
+
+    public boolean isMatch(String s, String p){/**这种写法不行，acdcb， a*c?b过不了*/
+        if(p.isEmpty() || s.isEmpty()) return s.isEmpty();
+        boolean first_Match = !s.isEmpty()&&(p.charAt(0)==s.charAt(0) || p.charAt(0) == '?'||p.charAt(0) =='*');
+        if(p.length()>=1  && p.charAt(0) == '*'){
+            return isMatch(s.substring(1),p)&&first_Match || isMatch(s, p.substring(1));
+        } else {
+            return isMatch(s.substring(1), p.substring(1)) && first_Match;
+        }
     }
 
 /*****************************************以下为backtrack， 妈的是人能想明白的？？？？？？？***********************************/
-    public boolean isMatch(String s, String p) {
+    public boolean isMatchIII(String s, String p) {
         int sLen = s.length(), pLen = p.length();
         int sIdx = 0, pIdx = 0;
         int starIdx = -1, sTmpIdx = -1;/**细品，这两个数到底是啥？？？？*/
