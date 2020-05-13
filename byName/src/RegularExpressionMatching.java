@@ -47,17 +47,37 @@
 
 public class RegularExpressionMatching {
     public static void main(String[] args) {
-        System.out.println(new RegularExpressionMatching().isMatch("aa","a"));
-        System.out.println(new RegularExpressionMatching().isMatch("aa","a*"));
-        System.out.println(new RegularExpressionMatching().isMatch("ab",".*"));
-        System.out.println(new RegularExpressionMatching().isMatch("aab","c*a*b"));
         System.out.println(new RegularExpressionMatching().isMatch("mississippi","mis*is*p*."));
+        System.out.println(new RegularExpressionMatching().isMatchII("mississippi","mis*is*p*."));
+        System.out.println(new RegularExpressionMatching().isMatchII("aab","c*a*b"));
+    }
+
+    public boolean isMatchII(String s, String pattern){/**由下至上的递归*/
+        boolean[][] dp = new boolean[s.length()+1][pattern.length()+1];
+        dp[s.length()][pattern.length()] = true;
+        for(int i = s.length(); i>=0; i--){
+            for(int j = pattern.length()-1; j>=0; j--){
+                boolean first_match;
+                if(i>=s.length()){/**为了防止index out of bound*/
+                    first_match = false;
+                }else{
+                    first_match = s.charAt(i) == pattern.charAt(j) || pattern.charAt(j) == '.';
+                }
+                if(j+1< pattern.length() && pattern.charAt(j+1) == '*'){
+                    dp[i][j] = first_match && dp[i+1][j] || dp[i][j+2];/**忘了first_match就错了*/
+                }else{
+                    dp[i][j] = first_match && dp[i+1][j+1];
+                }
+            }
+        }
+        return dp[0][0];
     }
     public boolean isMatch(String s, String pattern){
         if(pattern.length() == 0) return s.length() == 0;
-        boolean first_match = s.length()!=0/**这个判断条件细啊*/ && (s.charAt(0) == pattern.charAt(0) || pattern.charAt(0) == '.');
+        boolean first_match = s.length()!=0/**这个判断条件细啊， 防止index out of bound*/ && (s.charAt(0) == pattern.charAt(0) || pattern.charAt(0) == '.');
         if(pattern.length()>=2 && pattern.charAt(1) == '*'){
-            return (first_match && isMatch(s.substring(1), pattern)) || isMatch(s,pattern.substring(2));
+            return (first_match && isMatch(s.substring(1)/**两种情况，1。第一位能匹对上且后面一位能跟'*'配对上，所以s往后移一位， pattern停在原地'*'位*/, pattern))
+                    || isMatch(s,pattern.substring(2)/**2。配对不上，pattern跳过*，所以往后移两位，s停在原地*/);
         } else{
             return first_match && isMatch(s.substring(1), pattern.substring(1));
         }
