@@ -41,7 +41,7 @@ public class DecodeWays {/**早点刷亚麻是不是有了。。。。。。跟�
 
     public static void main(String[] args) {
         System.out.println(new DecodeWays().waysToDecode("226"));
-        System.out.println(new DecodeWays().waysToDecode("12git"));
+        System.out.println(new DecodeWays().waysToDecode("12"));
     }
     public int waysToDecode(String s){
         if(s.isEmpty() || s.charAt(0) == '0') return 0; /**审题，有意义的数字只有1-26，要是一开始就给你个0，不用玩了, 但是！！要是数字中间有0就另说了*/
