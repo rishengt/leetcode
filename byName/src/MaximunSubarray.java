@@ -45,7 +45,7 @@ public class MaximunSubarray {
         }
         return rightsum + leftsum;
     }
-
+/************************************************有贪心你猜猜就会有什么？？？？***********************************************/
     public int greedy(int[] nums){
         int currentSum = nums[0];
         int maxSum = nums[0];
@@ -55,4 +55,7 @@ public class MaximunSubarray {
         }
         return maxSum;
     }
+
+/***************************************没错！！！！！正是在下，dp～～***********************************************************/
+
 }

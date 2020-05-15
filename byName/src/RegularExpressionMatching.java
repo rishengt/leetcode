@@ -47,9 +47,10 @@
 
 public class RegularExpressionMatching {
     public static void main(String[] args) {
-        System.out.println(new RegularExpressionMatching().isMatch("mississippi","mis*is*p*."));
-        System.out.println(new RegularExpressionMatching().isMatchII("mississippi","mis*is*p*."));
-        System.out.println(new RegularExpressionMatching().isMatchII("aab","c*a*b"));
+//        System.out.println(new RegularExpressionMatching().isMatch("mississippi","mis*is*p*."));
+//        System.out.println(new RegularExpressionMatching().isMatchII("mississippi","mis*is*p*."));
+//        System.out.println(new RegularExpressionMatching().isMatchII("aab","c*a*b"));
+        System.out.println(new RegularExpressionMatching().isMatchII("aa","a"));
     }
 
     public boolean isMatchII(String s, String pattern){/**由下至上的递归*/

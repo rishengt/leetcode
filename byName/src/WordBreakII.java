@@ -46,7 +46,7 @@ public class WordBreakII {
     }
     public List<String> wordBreak(String s, List<String> wordDict){
         return dfs(s,0,new HashSet<>(wordDict), new HashMap<>());
-    }
+    }                                 /**要截取某一段东西的时候往递归里噻一个index*/
     public List<String> dfs(String s, int start, HashSet<String> set, HashMap<Integer, List<String>> map){/***这里每一个细节都要好好记住，每一一遍不过分吧。。。*/
         List<String> list = new ArrayList<>();
         if(map.containsKey(start)) return map.get(start);
