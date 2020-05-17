@@ -16,8 +16,8 @@ public class MaximunSubarray {
     }
 
     public int MaxSubarray(int[] nums){
-        //return greedy(nums); 容易记也容易记错。。。。。
-        return dividConquer(nums,0,nums.length-1);
+        return greedy(nums); //容易记也容易记错。。。。。
+        //return dividConquer(nums,0,nums.length-1);
     }
 
     public int dividConquer(int[] nums, int left, int right){
@@ -50,12 +50,11 @@ public class MaximunSubarray {
         int currentSum = nums[0];
         int maxSum = nums[0];
         for(int i = 1; i<nums.length; i++){
+            /**无限玄妙就在这两行代码当中啊！要是新的数纳入进来会让你的和更大，那就保留这个值，要是比你当前的和更大那就从设num【i】为起点*/
             currentSum = Math.max(nums[i],currentSum+nums[i]);
+            /**保留你前面遇到过所有可能的最大值，太妙了*/
             maxSum = Math.max(currentSum,maxSum);
         }
         return maxSum;
     }
-
-/***************************************没错！！！！！正是在下，dp～～***********************************************************/
-
 }
