@@ -43,6 +43,26 @@ public class DecodeWays {/**早点刷亚麻是不是有了。。。。。。跟�
         System.out.println(new DecodeWays().waysToDecode("226"));
         System.out.println(new DecodeWays().waysToDecode("12"));
     }
+/******************************************当然我们可以魔改DecodeWaysII的后半部分****************************************************************/
+    public int waysToDecodeII(String s) {
+        int[] dp = new int[s.length() + 1];
+        dp[0] = 1;
+        dp[1] = s.charAt(0) == '0' ? 0 : 1;
+        for (int i = 1; i < s.length(); i++) { /**思路都是一样的，判断每一位能不能用*/
+            dp[i + 1] = s.charAt(i) == '0' ? 0 : dp[i];
+            /**if(s.charAt(i-1) <= '2' && s.charAt(i) <='6') 只写这个判断条件的话 "*1" 就不行*/
+            if (s.charAt(i - 1) == '1') {
+                dp[i + 1] = (dp[i + 1] + dp[i - 1]);
+            } else if (s.charAt(i - 1) == '2' && s.charAt(i) <= '6') {/**只有这两种情况上一位才能用*/
+                dp[i + 1] = (dp[i + 1] + dp[i - 1]);
+            }
+        }
+        return dp[s.length()];
+    }
+
+
+
+
     public int waysToDecode(String s){
         if(s.isEmpty() || s.charAt(0) == '0') return 0; /**审题，有意义的数字只有1-26，要是一开始就给你个0，不用玩了, 但是！！要是数字中间有0就另说了*/
         int[] dp = new int[s.length()+1];
