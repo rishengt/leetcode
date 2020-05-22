@@ -33,21 +33,24 @@ import java.util.List;
 public class CombinationSum {
     public static void main(String[] args) {
         System.out.println(new CombinationSum().combinationSum(new int[]{2,3,6,7}, 7));
+        System.out.println(new CombinationSum().combinationSum(new int[]{2,3,5}, 8));
     }
     public List<List<Integer>> combinationSum(int[] candidates, int target){
         List<List<Integer>> ans = new ArrayList<>();
         backtrack(ans,new ArrayList<>(), candidates, target, 0);
         return ans;
     }
-    public void backtrack(List<List<Integer>> ans, List<Integer> temp, int[] candidates, int target, int start){/**这个start为何如此关键？？*/
-        if(target<0) return;/**这列妈的也超级重要*/
-        if(target == 0) ans.add(new ArrayList<>(temp));
-        for(int i = start; i<candidates.length; i++){
-            //target -= candidates[i]; //不能这样写因为target是全局变量一旦变了就return不回去了。。。。。
-            temp.add(candidates[i]);
-            backtrack(ans,temp,candidates,target-candidates[i]/**这样写能把target变成局部变量*/, start/**这里给start永远从0 index开始遍历，
-             反观下一题传了i+1，就是从下一个index开始遍历*/);
-            temp.remove(temp.size()-1);
+    public void backtrack(List<List<Integer>> ans, List<Integer> temp, int[] candidates, int target, int start) {/**这个start为何如此关键？？*/
+        if (target < 0) return;/**这列妈的也超级重要*/
+        else if (target == 0) {ans.add(new ArrayList<>(temp)); return;}
+        else {
+            for (int i = start; i < candidates.length; i++) {
+                //target -= candidates[i]; //不能这样写因为target是全局变量一旦变了就return不回去了。。。。。
+                temp.add(candidates[i]);
+                backtrack(ans, temp, candidates, target - candidates[i]/**这样写能把target变成局部变量*/, i/**为毛这里是给i而不是给start？？？
+                                                                                                                反观IV就是给了start，给start会有重复，细品*/);
+                temp.remove(temp.size() - 1);
+            }
         }
     }
 }

@@ -35,7 +35,7 @@ public class RearrangeStringKDistanceApart {
             }
         });
         for (int j = 0; j < 26; j++) {
-            if (array[j] != 0) {
+            if (array[j] != 0) {/**排除掉没出现过的*/
                 heap.offer(new int[] {j, array[j]});/**j代表那个字母， array【j】代表出现的次数*/
             }
         }
@@ -43,9 +43,9 @@ public class RearrangeStringKDistanceApart {
         int len = str.length();
         while (!heap.isEmpty()) {
             int cnt = Math.min(len, k);/**这里代表string填到后半程长度不够了该怎么填， 细啊！！！！*/
-            List<int[]> v = new ArrayList<>();
+            List<int[]> v = new ArrayList<>();/**这东西自有妙用，类似普通BFS里size的作用吧*/
             for (int i = 0; i < cnt; i++) {/**这样可以把heap里面靠前的（代表有所重复的）字母按cnt的间隔排好*/
-                if (heap.isEmpty()) return "";/**用光了heap里面的字母代表不可能实现每一个重复的字母都能被隔cnt那么多位*/
+                if (heap.isEmpty()) return "";/**用光了heap里面的字母代表不可能实现每一个重复的字母都能被隔cnt那么多位，按题目要求返回空字符串*/
                 int[] t = heap.poll();/**把靠前的怼出来*/
                 res.append((char)('a' + t[0]));/**把字母还原并怼到sb里面*/
                 if (--t[1] > 0) {/**要是加了以后字母出现次数还是比零大，怒进list*/
