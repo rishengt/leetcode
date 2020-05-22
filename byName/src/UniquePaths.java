@@ -58,10 +58,18 @@ public class UniquePaths {
 /***********************************这道题的dp要求你记住不过分吧菜🐔*********************************************************/
     public int uniquePaths(int m, int n){
         int[][] dp = new int[m][n];
+
+        /**细品这两条for loop， 当你的点在第一行或者第一列的时候，你永远只有一种办法能去到那里因为你只能往下或者右，没法回头*/
         for(int i = 0; i<m; i++){
-            for(int j = 0; j< n; j++){
-                if(i==0 || j== 0) dp[i][j] = 1; /**细品，当你在x轴或者y轴的时候你只有一条路可以走， 因为你不能回头，只能往右或者下*/
-                else dp[i][j] = dp[i-1][j] + dp[i][j-1];
+            dp[i][0] = 1;
+        }
+        for(int j = 0; j<n; j++){
+            dp[0][j] = 1;
+        }
+
+        for(int i = 1; i<m; i++){
+            for(int j = 1; j< n; j++){
+                dp[i][j] = dp[i-1][j] + dp[i][j-1];
             }
         }
         return dp[m-1][n-1];
