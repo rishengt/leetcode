@@ -36,6 +36,7 @@ import java.util.List;
 public class CombinationSumII {
     public static void main(String[] args) {
         System.out.println(new CombinationSumII().combine(new int[]{10,1,2,7,6,1,5}, 8));
+        System.out.println(new CombinationSumII().combine(new int[]{2,5,2,1,2}, 5));
     }
 
     public List<List<Integer>> combine(int[] candidates, int target){
