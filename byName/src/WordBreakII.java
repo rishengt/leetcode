@@ -50,12 +50,12 @@ public class WordBreakII {
     public List<String> dfs(String s, int start, HashSet<String> set, HashMap<Integer, List<String>> map){/***这里每一个细节都要好好记住，每一一遍不过分吧。。。*/
         List<String> list = new ArrayList<>();
         if(map.containsKey(start)) return map.get(start);
-        if(start == s.length()) list.add("");/**精妙绝伦*/
+        if(start == s.length()) list.add("");/**精妙绝伦,要是到最后并不能找到合适的substring，返回空值全靠这一步*/
         for(int end = start+1; end<=s.length(); end++){
             if(set.contains(s.substring(start,end))){
-                List<String> temp = dfs(s,end,set,map);
-                for(String string:temp){
-                    list.add(s.substring(start,end)+(string.equals("")?"": " ")+string);
+                List<String> temp = dfs(s,end,set,map);/**条件满足会一路干到""，然后一层层返回， 而且会用到map里存好的list*/
+                for(String string:temp){/**返回的过程中不断往屁股后面加合格的新词*/
+                    list.add(s.substring(start,end)+(string.equals("")?"": " ")+string);/**判读""那里细节到炸裂*/
                 }
             }
         }
