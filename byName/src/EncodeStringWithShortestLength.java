@@ -76,10 +76,10 @@ public String encode(String s) {
     for(int i = 0; i < n; i++) dp[i][i] = "" + s.charAt(i);
     // j - i
     for(int len = 1; len < n; len++) {
-        for(int i = 0; i + len < n; i++) {
+        for(int i = 0; i + len < n; i++) {/**关键的传参*/
             int j = i + len;
             // enumerate seperate k
-            for(int k = i; k < j; k++) {
+            for(int k = i; k < j; k++) {  /**就像上面注释里说的，按k分割*/
                 int left = dp[i][k].length();
                 int right = dp[k+1][j].length();
                 // update shortest encoded string within (i, j)
@@ -89,11 +89,11 @@ public String encode(String s) {
             }
             // update string within (i, j), encode abcabc
             String sub = s.substring(i, j + 1);
-            int index = (sub + sub).indexOf(sub, 1);
+            int index = (sub + sub).indexOf(sub, 1);/**这里用到了找RepeatedSubstringPattern的天才方法。。*/
             if(index < sub.length()) {
                 sub = (sub.length() / index) + "[" + dp[i][i+index-1] + "]";
             }
-            if(dp[i][j] == null || dp[i][j].length() > sub.length()) {
+            if(dp[i][j] == null || dp[i][j].length() > sub.length()) {/**这里针对的就是s只有4个字母的时候，你怎么encode都是没缩短的。。。*/
                 dp[i][j] = sub;
             }
         }
