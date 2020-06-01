@@ -1,7 +1,4 @@
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.List;
+import java.util.*;
 
 /**
  * We have n jobs, where every job is scheduled to be done from startTime[i] to endTime[i], obtaining a profit of profit[i].
@@ -42,8 +39,40 @@ import java.util.List;
  * 1 <= startTime.length == endTime.length == profit.length <= 5 * 10^4
  * 1 <= startTime[i] < endTime[i] <= 10^9
  * 1 <= profit[i] <= 10^4
+ *
+ *
+ *
+ *
+ * Explanation
+ * Sort the jobs by endTime.
+ *
+ * dp[time] = profit means that within the first time duration,
+ * we cam make at most profit money.
+ * Intial dp[0] = 0, as we make profit = 0 at time = 0.
+ *
+ * For each job = [s, e, p], where s,e,p are its start time, end time and profit,
+ * Then the logic is similar to the knapsack problem.
+ * If we don't do this job, nothing will be changed.
+ * If we do this job, binary search in the dp to find the largest profit we can make before start time s.
+ * So we also know the maximum cuurent profit that we can make doing this job.
+ *
+ * Compare with last element in the dp,
+ * we make more money,
+ * it worth doing this job,
+ * then we add the pair of [e, cur] to the back of dp.
+ * Otherwise, we'd like not to do this job.
+ *
+ *
+ * Complexity
+ * Time O(NlogN) for sorting
+ * Time O(NlogN) for binary search for each job
+ * Space O(N)
  */
 public class MaximumProfitOfJobScheduling {
+
+    public static void main(String[] args) {
+        System.out.println(new MaximumProfitOfJobScheduling().jobSchedulingII(new int[]{1,2,3,4,6}, new int[]{3,5,10,6,9}, new int[]{20,40,100,70,60}));
+    }
     public int jobScheduling(int[] startTime, int[] endTime, int[] profit) {
 // sort by endTime
         int[][] items = new int[startTime.length][3];
@@ -72,4 +101,24 @@ public class MaximumProfitOfJobScheduling {
         }
         return dpProfit.get(dpProfit.size() - 1);
     }
+
+/*******************************************Using HashMap*******************************************************************/
+public int jobSchedulingII(int[] startTime, int[] endTime, int[] profit) {
+    int n = startTime.length;
+    int[][] jobs = new int[n][3];
+    for (int i = 0; i < n; i++) {
+        jobs[i] = new int[] {startTime[i], endTime[i], profit[i]};
+    }
+    Arrays.sort(jobs, (a, b)->a[1] - b[1]);
+    TreeMap<Integer, Integer> dp = new TreeMap<>();
+    dp.put(0, 0);/**这里给初始值，凡是dp大概如此。。。逻辑代表请看上面解析。。。。*/
+    for (int[] job : jobs) {
+        int cur = dp.floorEntry(job[0]).getValue() + job[2];/***这个floorEntry是非常有讲究的，细品！！！应为有了初始值所以不会返回null，
+         找不到这个key的时候就returns the entry for the greatest key less than the specified
+         key，也就是说要是刚好有首尾相接的两个time period它会帮你找出来*/
+        if (cur > dp.lastEntry().getValue())
+            dp.put(job[1], cur);
+    }
+    return dp.lastEntry().getValue();
+}
 }
