@@ -1,4 +1,5 @@
 import java.util.HashMap;
+import java.util.Stack;
 
 /**
  * Given a string containing just the characters '(', ')', '{', '}', '[' and ']', determine if the input string is valid.
@@ -31,5 +32,26 @@ import java.util.HashMap;
  * Output: true
  */
 public class ParenthesesValid {
-
+    public static void main(String[] args) {
+        System.out.println(new ParenthesesValid().isValid("{[]}"));
+        System.out.println(new ParenthesesValid().isValid("([)]"));
+        System.out.println(new ParenthesesValid().isValid("()[]{}"));
+    }
+    public boolean isValid(String s){
+        HashMap<Character, Character> map = new HashMap<>();
+        map.put('}','{');
+        map.put(')','(');
+        map.put(']','[');
+        Stack<Character> stack = new Stack<>();
+        for(int i = 0; i< s.length(); i++){
+            if(map.containsKey(s.charAt(i))){
+                char c = stack.isEmpty()? '*':stack.peek();
+                if(map.get(s.charAt(i)) == c) stack.pop();
+                else return false;
+            }else{
+                stack.push(s.charAt(i));
+            }
+        }
+        return stack.isEmpty();
+    }
 }
