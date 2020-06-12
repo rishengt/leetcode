@@ -14,7 +14,11 @@
  * Input: nums = [5,7,7,8,8,10], target = 6
  * Output: [-1,-1]
  */
-public class FindFirstAndLastElementinSortedArray {
+public class FindFirstAndLastElementInSortedArray {
+    public static void main(String[] args) {
+        System.out.println(new FindFirstAndLastElementInSortedArray().searchRange(new int[]{5,7,7,8,8,10},8));
+    }
+
     public int[] searchRange(int[] nums, int target) {
         int start = 0;
         int end = nums.length - 1;
