@@ -1,5 +1,11 @@
+import java.util.HashMap;
+import java.util.Map;
+import java.util.TreeSet;
+
 /**
- * Your country has an infinite number of lakes. Initially, all the lakes are empty, but when it rains over the nth lake, the nth lake becomes full of water. If it rains over a lake which is full of water, there will be a flood. Your goal is to avoid the flood in any lake.
+ * Your country has an infinite number of lakes. Initially, all the lakes are empty, but when it rains over the nth lake,
+ * the nth lake becomes full of water. If it rains over a lake which is full of water, there will be a flood.
+ * Your goal is to avoid the flood in any lake.
  *
  * Given an integer array rains where:
  *
@@ -47,6 +53,7 @@
  *
  * Input: rains = [69,0,0,0,69]
  * Output: [-1,69,1,1,-1]
+ *
  * Explanation: Any solution on one of the forms [-1,69,x,y,-1], [-1,x,69,y,-1] or [-1,x,y,69,-1] is acceptable where 1 <= x,y <= 10^9
  * Example 5:
  *
@@ -55,7 +62,30 @@
  * Explanation: It will rain over lake 20 two consecutive days. There is no chance to dry any lake.
  */
 public class AvoidFloodinTheCity {
-//    public int[] avoidFlood(int[] rains) {
-//
-//    }
+    public static void main(String[] args) {
+        new AvoidFloodinTheCity().avoidFlood(new int[]{1,2,0,1,2});
+    }
+    public int[] avoidFlood(int[] rains) {
+        // the previous appeared idx of rains[i]
+        Map<Integer, Integer> map = new HashMap<>();
+        TreeSet<Integer> zeros = new TreeSet<>();/**至于为什么要用TreeSet这个数据结构我功力不够想不明白*/
+        int[] res = new int[rains.length];
+        for (int i = 0; i < rains.length; i++) {
+            if (rains[i] == 0) {
+                zeros.add(i);/**把下雨为零的天数存到set里*/
+            } else {
+                if (map.containsKey(rains[i])) {
+                    // find the location of zero that can be used to empty rains[i]
+                    Integer next = zeros.ceiling(map.get(rains[i]));/**精髓，找到不下雨的那天然后排水*/
+                    if (next == null) return new int[0];/**要是不可能把水排干，那就返回空的array*/
+                    res[next] = rains[i];
+                    zeros.remove(next);/**用过一次不下雨的天数记得把它remove掉*/
+                }
+                res[i] = -1;/**凡事当天下雨，答案里的那天就变-1*/
+                map.put(rains[i], i);/**把下雨以及对应的天数存到map里*/
+            }
+        }
+        for (int i : zeros) res[i] = 1;
+        return res;
+    }
 }
