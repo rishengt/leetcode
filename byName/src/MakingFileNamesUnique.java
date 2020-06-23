@@ -58,7 +58,7 @@ public class MakingFileNamesUnique {
     public static void main(String[] args) {
         String[] ans = new MakingFileNamesUnique().getFolderNames(new String[]{"kaido","kaido(1)","kaido","kaido(1)","kaido(2)"});
         String[] ansII = new MakingFileNamesUnique().getFolderNames(new String[]{"onepiece","onepiece(1)","onepiece(2)","onepiece(3)","onepiece"});
-        for(String s : ansII){
+        for(String s : ans){
             System.out.println(s);
         }
     }
@@ -69,7 +69,7 @@ public class MakingFileNamesUnique {
             String[] ret = new String[n];
             for(int i = 0;i < n;i++){
                 if(all.add(names[i])){/**这里妈的是精髓，HashSet的add返回的是boolean，就跟HashMap的put返回东西一样，妈的你好菜啊傻逼*/
-                    ret[i] = names[i];
+                    ret[i] = names[i];/**真正去重的是set，map只是记录重复次数的工具map*/
                 }else{
                     int g = map.getOrDefault(names[i], 0);
                     while(true){
@@ -77,7 +77,7 @@ public class MakingFileNamesUnique {
                         String nm = names[i] + "(" + g + ")";
                         if(all.add(nm)){
                             ret[i] = nm;
-                            map.put(names[i], g);
+                            map.put(names[i], g);/**记录重复次数的工具map*/
                             break;
                         }
                     }
@@ -85,4 +85,28 @@ public class MakingFileNamesUnique {
             }
             return ret;
         }
+
+/*************************************************我自己的方法LC 倒数第二会超时，上面的方法优胜在哪？****************************/
+    public String[] getFolderNamesII(String[] names) {
+        HashMap<String, Integer> map = new HashMap<>();
+        String[] ans = new String[names.length];
+        for(int i = 0; i< names.length; i++){
+            if(!map.containsKey(names[i])){
+                map.put(names[i],0);
+                ans[i] = names[i];
+            }else{
+                int j = map.get(names[i]);
+                while(true){
+                    j++;
+                    String cnm = names[i] + "(" + j + ")";
+                    if(!map.containsKey(cnm)){
+                        map.put(cnm,0);
+                        ans[i] = cnm;
+                        break;
+                    }
+                }
+            }
+        }
+        return ans;
+    }
 }
