@@ -40,6 +40,7 @@ public class BSTValidate {
         root.right.left = new TreeNode(3);
         root.right.right = new TreeNode(6);
         System.out.println(bst.isBst(root));
+        System.out.println(bst.isBST(root));
         TreeNode root2 = new TreeNode(2);
         root2.left = new TreeNode(1);
         root2.right = new TreeNode(3);
