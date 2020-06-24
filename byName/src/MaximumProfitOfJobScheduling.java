@@ -118,6 +118,7 @@ public int jobSchedulingII(int[] startTime, int[] endTime, int[] profit) {
          key，也就是说要是刚好有首尾相接的两个time period它会帮你找出来*/
         if (cur > dp.lastEntry().getValue())
             dp.put(job[1], cur);
+        System.out.println(dp.size());
     }
     return dp.lastEntry().getValue();
 }
