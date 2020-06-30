@@ -25,6 +25,7 @@ public class GroupAnagrams {
             char[] c =string.toCharArray();
             Arrays.sort(c);
             String temp = String.valueOf(c);/**必须要化成string去存，你直接存char【】会指向不同地址，出错***/
+            /**你用toString（）也不行因为toString也是新开一个内存，HashMap还是检测不到重复的，只有String.valueOf()是static的*/
             if(map.containsKey(temp)){
                 map.get(temp).add(string);
             }else{
