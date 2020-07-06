@@ -57,37 +57,6 @@ public class CountSubmatricesWithAllOnes {
         System.out.println(new CountSubmatricesWithAllOnes().numSubmatDP(new int[][]{{1,1,1,1,1}}));
     }
 
-    /**Now, Let's solve 2D metrics by finding all 1 submetrics from row "up" to row "down". And apply above 1D helper function.
-     Note: the array h[k] == 1 means all values in column k from row "up" to "down" are 1 (that's why we use &).
-     So overall, the idea is to "compress" the 2D array to the 1D array, and apply 1D array method on it, while trying all heights up to down.*/
-
-    public int numSubmat(int[][] mat) {
-
-        int M = mat.length, N = mat[0].length;
-
-        int res = 0;
-        for (int up = 0; up < M; ++up) {
-            int[] h = new int[N];
-            Arrays.fill(h, 1);
-            for (int down = up; down < M; ++down) {
-                for (int k = 0; k < N; ++k) h[k] &= mat[down][k];
-                res += countOneRow(h);
-            }
-        }
-
-        return res;
-    }
-
-    private int countOneRow(int[] A) { /**细品，给你一条一维matrix，让你求带1的submatrix，怎么求*/
-
-        int res = 0, length = 0;
-        for (int i = 0; i < A.length; ++i) {
-            length = (A[i] == 0 ? 0 : length + 1);
-            res += length;
-        }
-        return res;
-    }
-
 
     /*********************************************** dp 解 *****************************************************************/
 
@@ -102,10 +71,11 @@ public class CountSubmatricesWithAllOnes {
         int m = mat.length, n = mat[0].length, height[] = new int[n], res = 0;
         for (int i = 0; i < m; i++) {
             for (int j = 0; j < n; j++) {
+                /**这里感觉跟你的姐妹题很像，都是用dp来存到i，j这个点长方形最大的边长以及有多少个，所以一旦断掉了（有个0）那就不是连续的，那么0那个位置就是0*/
                 height[j] = mat[i][j] == 0 ? 0 : height[j] + 1;   // horizontal height of histogram;
                 for (int k = j, min = height[j]; k >= 0 && min > 0; k--) {
-                    min = Math.min(min, height[k]);
-                    res += min;
+                    min = Math.min(min, height[k]);/**精髓，跟姐妹题超像，只能以最短的边为标准，不然就爆开来了，其实我也不是彻底的懂，没事多看看姐妹题吧*/
+                    res += min;//凡是这种求总数量的应该都要有这一步吧。。。。。。。
                 }
             }
         }
