@@ -51,10 +51,11 @@ import java.util.Arrays;
 
 public class CountSubmatricesWithAllOnes {
     public static void main(String[] args) {
-        System.out.println(new CountSubmatricesWithAllOnes().numSubmatDP(new int[][]{{1,1},{1,1}}));
-        System.out.println(new CountSubmatricesWithAllOnes().numSubmatDP(new int[][]{{1,1},{1,0}}));
-        System.out.println(new CountSubmatricesWithAllOnes().numSubmatDP(new int[][]{{1,0,1},{0,1,0},{1,0,1}}));
-        System.out.println(new CountSubmatricesWithAllOnes().numSubmatDP(new int[][]{{1,1,1,1,1}}));
+//        System.out.println(new CountSubmatricesWithAllOnes().numSubmatDP(new int[][]{{1,1},{1,1}}));
+//        System.out.println(new CountSubmatricesWithAllOnes().numSubmatDP(new int[][]{{1,1},{1,0}}));
+//        System.out.println(new CountSubmatricesWithAllOnes().numSubmatDP(new int[][]{{1,0,1},{0,1,0},{1,0,1}}));
+//        System.out.println(new CountSubmatricesWithAllOnes().numSubmatDP(new int[][]{{1,1,1,1,1}}));
+        System.out.println(new CountSubmatricesWithAllOnes().numSubmatDP(new int[][]{{1,0,1},{1,1,0},{1,1,0}}));
     }
 
 
@@ -74,7 +75,7 @@ public class CountSubmatricesWithAllOnes {
                 /**这里感觉跟你的姐妹题很像，都是用dp来存到i，j这个点长方形最大的边长以及有多少个，所以一旦断掉了（有个0）那就不是连续的，那么0那个位置就是0*/
                 height[j] = mat[i][j] == 0 ? 0 : height[j] + 1;   // horizontal height of histogram;
                 for (int k = j, min = height[j]; k >= 0 && min > 0; k--) {
-                    min = Math.min(min, height[k]);/**精髓，跟姐妹题超像，只能以最短的边为标准，不然就爆开来了，其实我也不是彻底的懂，没事多看看姐妹题吧*/
+                    min = Math.min(min, height[k]);/**精髓，跟姐妹题超像，只能以列最短的边为标准，不然就爆开来了，其实我也不是彻底的懂，没事多看看姐妹题跟85吧，还有debug*/
                     res += min;//凡是这种求总数量的应该都要有这一步吧。。。。。。。
                 }
             }
