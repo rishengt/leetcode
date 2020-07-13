@@ -61,20 +61,21 @@ public class PathwithMaximumProbability {
             graph[edges[i][1]].add(new double[] { edges[i][0], succProb[i] });
         }
         /**用priorityQueue最重要的意义就是确保你每次去下一个点都是最优解，可以看看dijkstra的视频*/
-        PriorityQueue<double[]> queue = new PriorityQueue<>((a, b) -> Double.compare(b[1], a[1]));
+        PriorityQueue<double[]> queue = new PriorityQueue<>((a, b) -> Double.compare(b[1], a[1]));/**对比double一定要这样写，记住了傻叼！！！*/
         boolean[] visited = new boolean[n];
         queue.add(new double[] { start, 1 });/**由start向start出发是一定不会失败的，所以它的probability是1*/
         while (!queue.isEmpty()) {
             double[] head = queue.remove();/**用priorityQueue的意义就是，当你遍历到end的时候，你poll出来的一定是最大的概率*/
+            if(visited[(int) head[0]]) continue;/**visited也是Dijkstra的重要一环，它保证了你不会回到来你之前的上一个点，细品*/
             if (head[0] == end) {
                 return head[1];/**用priorityQueue的意义，细品*/
-            } else if (!visited[(int) head[0]]) {/**visited也是Dijkstra的重要一环，它保证了你不会回到来你之前的上一个点，细品*/
+            }
                 visited[(int) head[0]] = true;
                 for (double[] next : graph[(int) head[0]]) {
                     queue.add(new double[] { next[0], head[1] * next[1] });
                 }
             }
-        }
+
         return 0;
     }
 }
