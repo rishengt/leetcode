@@ -40,12 +40,35 @@ public class NumberofSubsequencesThatSatisfytheGivenSumCondition {
     public static void main(String[] args) {
         System.out.println(new NumberofSubsequencesThatSatisfytheGivenSumCondition().numSubseq(new int[]{2,3,3,4,6,7}, 12));
     }
+
+    /**
+     * Sort input A first,
+     * For each A[i], find out the maximum A[j]
+     * that A[i] + A[j] <= target.
+     *
+     * For each elements in the subarray A[i+1] ~ A[j],
+     * we can pick or not pick,
+     * so there are 2 ^ (j - i) subsequences in total.
+     * So we can update res = (res + 2 ^ (j - i)) % mod.
+     *
+     * We don't care the original elements order,
+     * we only want to know the count of sub sequence.
+     * So we can sort the original A, and the result won't change.
+     * @param A
+     * @param target
+     * @return
+     */
     public int numSubseq(int[] A, int target) {
         Arrays.sort(A);
         int res = 0, n = A.length, l = 0, r = n - 1, mod = (int)1e9 + 7;
         int[] pows = new int[n];
         pows[0] = 1;
         for (int i = 1 ; i < n ; ++i)
+        /**
+         * For each elements in the subarray A[i+1] ~ A[j],
+         *      * we can pick or not pick,
+         *      * so there are 2 ^ (j - i) subsequences in total.
+         */
             pows[i] = pows[i - 1] * 2;
         while (l <= r) {
             if (A[l] + A[r] > target) {
