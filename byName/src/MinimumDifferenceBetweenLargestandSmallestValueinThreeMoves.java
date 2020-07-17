@@ -67,6 +67,11 @@ public class MinimumDifferenceBetweenLargestandSmallestValueinThreeMoves {
         if(nums.length<=4) return 0;
         int n = nums.length;
         Arrays.sort(nums);
+        /**
+         * for (int i = 0; i < 4; ++i) {
+         *             res = Math.min(res, A[n - 4 + i] - A[i]);  /这种写法你不觉得跟那个抽卡的很像吗，index都快被你们玩坏啦喂！！
+         *         }
+         */
         return Math.min(nums[n-4]-nums[0], Math.min(nums[n-3]-nums[1],Math.min(nums[n-2]-nums[2],nums[n-1]-nums[3])));
     }
 }
