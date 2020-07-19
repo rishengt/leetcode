@@ -53,7 +53,35 @@
  * -1000 <= values[i] <= 1000
  */
 public class StoneGameIII {
-//    public String play(int[] stoneValue) {
-//
-//    }
+    public static void main(String[] args) {
+//        System.out.println(new StoneGameIII().play(new int[]{1,2,3,7}));
+        System.out.println(new StoneGameIII().play(new int[]{1,2,3,-9}));
+//        System.out.println(new StoneGameIII().play(new int[]{1,2,3,6}));
+//        System.out.println(new StoneGameIII().play(new int[]{1,2,3,-1,-2,-3,7}));
+//        System.out.println(new StoneGameIII().play(new int[]{-1,-2,-3}));
+    }
+    public String play(int[] stoneValue) {
+        int n = stoneValue.length;
+        int[] prefix = new int[n+1];
+        for(int i = 0; i < n; i++){
+            prefix[i+1] = prefix[i] + stoneValue[i];/**prefix代表了到i你一直连续拿能拿到多少分*/
+        }
+        int sum = dfs(0, n, prefix);
+        if(sum*2 >  prefix[n]){/**为啥？*/
+            return "Alice";
+        }
+        if(sum*2 == prefix[n]){
+            return "Tie";
+        }
+        return "Bob";
+    }
+    public int dfs(int start, int end, int[] prefix){
+        if(start <= end){
+            int a = dfs(start + 1, end, prefix);
+            int b = dfs(start + 2, end, prefix);
+            int c = dfs(start + 3, end, prefix);
+            return prefix[end] - prefix[start] - Math.min(a, Math.min(b,c));/**啥？？*/
+        }
+        return 0;
+    }
 }
