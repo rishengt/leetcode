@@ -33,7 +33,7 @@ public class WaterBottles {
         int ans = 0;
         ans +=numBottles;
         int total = numBottles;
-        while (total>numExchange){
+        while (total>=numExchange){
             int can = total/numExchange;
             int left = total%numExchange;
             ans+=can;
