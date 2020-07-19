@@ -9,8 +9,8 @@
  */
 public class WaterBottles {
     public static void main(String[] args) {
-        System.out.println(new WaterBottles().numWaterBottles(15,4));
-        System.out.println(new WaterBottles().numWaterBottles(5,5));
+        System.out.println(new WaterBottles().numWaterBottlesII(15,4));
+        System.out.println(new WaterBottles().numWaterBottlesII(5,5));
     }
     public int numWaterBottles(int numBottles, int numExchange) {
         int ans = 0;
@@ -27,5 +27,18 @@ public class WaterBottles {
             total = canDrink+left;
             return helper(ans+canDrink, canDrink,total,numExchange);
         }
+    }
+
+    public int numWaterBottlesII(int numBottles, int numExchange){
+        int ans = 0;
+        ans +=numBottles;
+        int total = numBottles;
+        while (total>numExchange){
+            int can = total/numExchange;
+            int left = total%numExchange;
+            ans+=can;
+            total = can+left;
+        }
+        return ans;
     }
 }
