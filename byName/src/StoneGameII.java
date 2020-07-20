@@ -63,6 +63,24 @@ public class StoneGameII {
             return help(piles, 0, 1, 0, new Integer[piles.length + 1][2 * piles.length + 1][2]);
         }
 
+    /**
+     * The idea of minimax :
+     *
+     * If am the player 1 (whose winning sum we are trying to calculate), then I recurse on all possibilities and get the max.
+     * If am the player 2 (the opponent), then I try to minimize what P1 gets, and since we are not interested in what score P2 gets, we only calculate the min(all P1 next moves) and dont include the score P2 gets.
+     * Thanks to @douzigege for his comment which explains the minimax scenario specifically for this problem.
+     *
+     * if player == 1st player,
+     * gain = first x piles + minimax(..., 2nd player), where the gain is maximized
+     * if player == 2nd player,
+     * gain = 0 + minimax(..., 1st player), where the gain is minimized because the 2nd player tries to maximize his**
+
+     Regardless of who the player is, we want the function call to only return Alex's score.
+     So, we'll keep a turn variable isAlex to keep track of whose turn it is.
+     So if we're Alex, we'll return the maximum of the set: (stones grabbed this turn + recurse on Lee's turn starting at the next index from what we grabbed).
+     If we're Lee, we will return the minumum of (recurse on Alex's turn starting at the next index from what we grabbed).
+     The size of these sets will be--assuming we're not at the end of the array--2m, since one can try grabbing 2m stones at a turn.
+     */
     private int help(int[] piles, int i, int m, int isAlex, Integer[][][] dp) {
         if (i >= piles.length)
             return 0;
@@ -82,7 +100,7 @@ public class StoneGameII {
             if (isAlex == 0)
                 maxScore = Math.max(maxScore, currSum + next);
             else
-                maxScore = Math.min(maxScore, next);
+                maxScore = Math.min(maxScore, next);/**p2跑只是要对p1的maxScore造成伤害而已，细品*/
         }
 
         return dp[i][m][isAlex] = maxScore;

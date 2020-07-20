@@ -54,34 +54,71 @@
  */
 public class StoneGameIII {
     public static void main(String[] args) {
-//        System.out.println(new StoneGameIII().play(new int[]{1,2,3,7}));
-        System.out.println(new StoneGameIII().play(new int[]{1,2,3,-9}));
-//        System.out.println(new StoneGameIII().play(new int[]{1,2,3,6}));
-//        System.out.println(new StoneGameIII().play(new int[]{1,2,3,-1,-2,-3,7}));
-//        System.out.println(new StoneGameIII().play(new int[]{-1,-2,-3}));
+        System.out.println(new StoneGameIII().playII(new int[]{1,2,3,7}));
+        System.out.println(new StoneGameIII().playII(new int[]{1,2,3,-9}));
+        System.out.println(new StoneGameIII().playII(new int[]{1,2,3,6}));
+        System.out.println(new StoneGameIII().playII(new int[]{1,2,3,-1,-2,-3,7}));
+        System.out.println(new StoneGameIII().playII(new int[]{-1,-2,-3}));
     }
-    public String play(int[] stoneValue) {
+
+    /*********************************************  minimax  **************************************************************/
+    /**
+     * Let's Alice be a maxPlayer and Bob be a minPlayer. On each turn, we need to maximize score of the maxPlayer and minimize score of the minPlayer.
+     * After all, we will check the final score. If score>0 Alice wins, score<0 Bob wins else they tie.
+     * @param arr
+     * @return
+     */
+    public String play(int[] arr) {
+        int score = minimax(arr, 0, 1, new Integer[arr.length][2]);
+        if (score > 0) return "Alice";
+        if (score < 0) return "Bob";
+        return "Tie";
+    }
+    int minimax(int[] arr, int i, int maxPlayer, Integer[][] dp) {
+        if (i >= arr.length) return 0;
+        if (dp[i][maxPlayer] != null) return dp[i][maxPlayer];
+        int ans = maxPlayer == 1 ? Integer.MIN_VALUE : Integer.MAX_VALUE;
+        int score = 0;
+        for (int j = i; j < Math.min(arr.length, i + 3); j++) {
+            if (maxPlayer == 1) {
+                score += arr[j];
+                ans = Math.max(ans, score + minimax(arr, j + 1, 0, dp));
+            } else {
+                score -= arr[j];
+                ans = Math.min(ans, score + minimax(arr, j + 1, 1, dp));
+            }
+        }
+        return dp[i][maxPlayer] = ans;
+    }
+
+
+    /**
+     * dp[i] is the maximum difference in the score of the current player against the opponent in the ith turn.
+     *
+     * There are 3 options for the current player to choose:
+     *
+     * Take A[i], diff1 = take - dp[i+1]
+     * Take A[i] + A[i+1], diff2 = take - dp[i+2]
+     * Take A[i] + A[i+1] + A[i+2], diff3 = take - dp[i+3]
+     * We want to maximize difference in the score of the current player against the opponent, so dp[i] = max(diff1, diff2, diff3)
+     * @param stoneValue
+     * @return
+     */
+    public String playII(int[] stoneValue) {
         int n = stoneValue.length;
-        int[] prefix = new int[n+1];
-        for(int i = 0; i < n; i++){
-            prefix[i+1] = prefix[i] + stoneValue[i];/**prefix代表了到i你一直连续拿能拿到多少分*/
+        int[] dp = new int[n + 1];
+        for (int i = n - 1; i >= 0; i--) {/**bottom-up是精髓！！！！！*/
+            int take = 0;
+            dp[i] = Integer.MIN_VALUE;
+            for (int j = i; j < Math.min(n, i + 3); j++) {
+                take += stoneValue[j];
+                dp[i] = Math.max(dp[i], take - dp[j + 1]);
+            }
         }
-        int sum = dfs(0, n, prefix);
-        if(sum*2 >  prefix[n]){/**为啥？*/
-            return "Alice";
-        }
-        if(sum*2 == prefix[n]){
-            return "Tie";
-        }
-        return "Bob";
+        int diff = dp[0]; // Alice goes first, starting from the first stone
+        if (diff > 0) return "Alice";
+        if (diff < 0) return "Bob";
+        return "Tie";
     }
-    public int dfs(int start, int end, int[] prefix){
-        if(start <= end){
-            int a = dfs(start + 1, end, prefix);
-            int b = dfs(start + 2, end, prefix);
-            int c = dfs(start + 3, end, prefix);
-            return prefix[end] - prefix[start] - Math.min(a, Math.min(b,c));/**啥？？*/
-        }
-        return 0;
-    }
+
 }
