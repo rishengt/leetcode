@@ -34,10 +34,12 @@ public class StoneGameII {
             int[] sums = new int[n];
             sums[n-1] = piles[n-1];
             for(int i = n -2; i>=0;i--) {
+                /**一定是最多的，跟第三题不同，pile【i】一定是正数，看constrain*/
                 sums[i] = sums[i+1] + piles[i]; //the sum from piles[i] to the end
             }
 
             int[][] hash = new int[n][n];
+            /**i表示从哪堆pile开始玩起，细品第一题的区间表达方法*/
             return helper(piles, 0, 1, sums, hash);
         }
 
@@ -49,7 +51,7 @@ public class StoneGameII {
             if(hash[i][M] != 0) return hash[i][M];
             int min = Integer.MAX_VALUE;//the min value the next player can get
             for(int x=1;x<=2*M;x++){
-                min = Math.min(min, helper(a, i+x, Math.max(M,x), sums,hash));
+                min = Math.min(min, helper(a, i+x, Math.max(M,x), sums,hash));/**因为Alex一共可以拿x pile，所以下一次开始的时候是i+x*/
             }
             hash[i][M] = sums[i] - min;  //max stones = all the left stones - the min stones next player can get
             return hash[i][M];
