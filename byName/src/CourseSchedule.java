@@ -32,7 +32,7 @@ import java.util.ArrayList;
  */
 public class CourseSchedule {
     public static void main(String[] args) {
-        System.out.println(new CourseSchedule().canFinish(3,new int[][]{{1,0},{2,0}}));
+        System.out.println(new CourseSchedule().canFinish(3,new int[][]{{1,0}}));
     }
     /*************哇塞！！！Topological sort是第一次见耶！！！！ 个人感觉用DFS是正统解决Topological sort 的解法，多做题来验证吧！ ****************/
 
@@ -43,7 +43,7 @@ public class CourseSchedule {
         ArrayList<Integer> bfs = new ArrayList();
         for (int i = 0; i < numCourses; ++i) G[i] = new ArrayList<Integer>();
         for (int[] e : prerequisites) {
-            G[e[1]].add(e[0]);/**这里表明你上e[1]之前要上e[0], 单向图，只加一次*/
+            G[e[1]].add(e[0]);/**这里表明你上e[0]之前要上e[1], 单向图，只加一次*/
             degree[e[0]]++;/**这个degree是什么？？degree代表了e[0]这个prerequistes被需要的次数*/
         }
         for (int i = 0; i < numCourses; ++i) {
