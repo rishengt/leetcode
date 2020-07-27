@@ -1,3 +1,7 @@
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Stack;
+
 /**
  * Given a binary tree and a sum, determine if the tree has a root-to-leaf path such that adding up all the values along the path equals the given sum.
  *
@@ -17,4 +21,26 @@
  * return true, as there exist a root-to-leaf path 5->4->11->2 which sum is 22.
  */
 public class PathSum {
+    public boolean hasPathSum(TreeNode root, int sum) {
+        if (root == null) {
+            return false;
+        }
+        return hasPathSumHelper(root, sum);
+    }
+
+    private boolean hasPathSumHelper(TreeNode root, int sum) {
+        //到达叶子节点
+        if (root.left == null && root.right == null) {
+            return root.val == sum;
+        }
+        //左孩子为 null
+        if (root.left == null) {
+            return hasPathSumHelper(root.right, sum - root.val);
+        }
+        //右孩子为 null
+        if (root.right == null) {
+            return hasPathSumHelper(root.left, sum - root.val);
+        }
+        return hasPathSumHelper(root.left, sum - root.val) || hasPathSumHelper(root.right, sum - root.val);
+    }
 }
