@@ -89,6 +89,6 @@ public class NumberofNodesintheSubTreeWiththeSameLabel {
             ++cnt[c - 'a'];
             ans[node] = cnt[c - 'a'];
         }
-        return cnt;
+        return cnt;/**返回的是所有你的subtree包括你自己在内label出现的数量*/
     }
 }
