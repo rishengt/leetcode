@@ -65,8 +65,7 @@ public class NumberofGoodLeafNodesPairs {
     {
         if(root == null)return new ArrayList<Integer>();
         if(root.left == null && root.right == null){
-            List<Integer> ret = new ArrayList<>();/**这条list到底代表了什么？ 它代表了你所有儿孙们（leaf nodes）到你这里的距离*/
-            /**如果你是最下层的子节点，你离你上一层的parent距离为一，所以加一，记录下来*/
+            List<Integer> ret = new ArrayList<>();/**审题草泥马！！！明明是每次遇到了leaf node就弄新建个list，然后每条list里面放的都是leaf node到它祖宗的距离。。。*/
             ret.add(1);
 //            ret.add(0); 加0⃣️也行，下面得加2⃣️补回来
             return ret;
@@ -85,7 +84,7 @@ public class NumberofGoodLeafNodesPairs {
 //                }
             }
         }
-        List<Integer> ret = new ArrayList<>();
+        List<Integer> ret = new ArrayList<>();/**这里的转换就尼玛离谱，好好品品*/
         for(int x : L)ret.add(x+1);/**层层往上推，你知道了你离你parent的距离是一，那么你离你parent的parent的距离就是1加上你离你parent的距离*/
         for(int x : R)ret.add(x+1);
         return ret;
@@ -100,7 +99,7 @@ public class NumberofGoodLeafNodesPairs {
         findLeaves(root, new ArrayList<>(), leaves, map);
         int res = 0;
         // count the distance of each leaf node pairs
-        for(int i = 0; i < leaves.size(); i++) {/**这里为什么以leaves的size为遍历边界？？*/
+        for(int i = 0; i < leaves.size(); i++) {
             for(int j = i + 1; j < leaves.size(); j++) {
                 List<TreeNode> list_i = map.get(leaves.get(i));
                 List<TreeNode> list_j = map.get(leaves.get(j));
@@ -123,8 +122,8 @@ public class NumberofGoodLeafNodesPairs {
         List<TreeNode> tmp = new ArrayList<>(trail);
         tmp.add(node);
         if(node.left == null && node.right == null) {
-            map.put(node, tmp);/**map里面存的是 当前节点（Treenode）跟它所有的子节点（list）*/
-            leaves.add(node);/**leaves 有什么用啊？？好像只保存了最下面的子节点？？*/
+            map.put(node, tmp);
+            leaves.add(node);
             return;
         }
         findLeaves(node.left, tmp, leaves, map);
