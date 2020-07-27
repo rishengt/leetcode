@@ -22,26 +22,30 @@ public class PermutationII {
         List<List<Integer>> ans = new PermutationII().permuteUnique(new int[]{1,1,2});
         System.out.println(ans);
     }
-    public List<List<Integer>> permuteUnique(int[] nums){
-        Arrays.sort(nums);//排序然后去重
-        List<List<Integer>> ans = new ArrayList<>();
-        backtrack(ans, nums, new ArrayList<Integer>(), new ArrayList<Integer>());
-        return ans;
+    public List<List<Integer>> permuteUnique(int[] nums) {
+        List<List<Integer>> res = new ArrayList<List<Integer>>();
+        if(nums==null || nums.length==0) return res;
+        boolean[] used = new boolean[nums.length];
+        List<Integer> list = new ArrayList<Integer>();
+        Arrays.sort(nums);
+        dfs(nums, used, list, res);
+        return res;
     }
 
-    public void backtrack(List<List<Integer>> ans, int[] nums, List<Integer> old, List<Integer> temp){
-        if(temp.size() == nums.length){
-            ans.add(new ArrayList<>(temp));
+    public void dfs(int[] nums, boolean[] used, List<Integer> list, List<List<Integer>> res){
+        if(list.size()==nums.length){
+            res.add(new ArrayList<Integer>(list));
             return;
         }
-        for(int i = 0; i< nums.length; i++){
-            if(old.contains(i)) continue;
-            if(i>0&&!old.contains(i-1)&&nums[i-1] == nums[i]) continue;/**虽不能理解但是要记住啊！！！！！**/
-            old.add(i);
-            temp.add(nums[i]);
-            backtrack(ans,nums,old,temp);
-            old.remove(old.size()-1);
-            temp.remove(temp.size()-1);
+        for(int i=0;i<nums.length;i++){
+            if(used[i]) continue;
+            if(i>0 &&nums[i-1]==nums[i] && !used[i-1]) continue;
+            //if(i>0 &&nums[i-1]==nums[i] && used[i-1]) continue; 去掉！ 也可以，只是比较慢，神奇，但这条boolean数组不能少
+            used[i]=true;
+            list.add(nums[i]);
+            dfs(nums,used,list,res);
+            used[i]=false;
+            list.remove(list.size()-1);
         }
     }
 }

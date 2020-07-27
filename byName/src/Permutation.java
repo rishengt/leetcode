@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 /**
@@ -20,7 +21,25 @@ import java.util.List;
 
 public class Permutation {
 
-    public List<List<Integer>> permute(int[] nums){
+    public List<List<Integer>> permute(int[] nums) {
+        Arrays.sort(nums);
+        List<List<Integer>> ans = new ArrayList<>();
+        backtrack(ans, new ArrayList<Integer>(), new boolean[nums.length], nums);
+        return ans;
+    }
+    public void backtrack(List<List<Integer>> ans, List<Integer> temp, boolean[] used, int[] nums){
+        if(temp.size() == nums.length) {ans.add(new ArrayList<Integer>(temp)); return;}
+        for(int i = 0; i < nums.length; i++){
+            if(used[i]) continue;
+            used[i] = true;
+            temp.add(nums[i]);
+            backtrack(ans,temp,used,nums);
+            used[i] = false;
+            temp.remove(temp.size()-1);
+        }
+    }
+
+    public List<List<Integer>> permuteII(int[] nums){
         List<List<Integer>> ans = new ArrayList<>();
         backtrack(ans,nums,new ArrayList<Integer>());
         return ans;
