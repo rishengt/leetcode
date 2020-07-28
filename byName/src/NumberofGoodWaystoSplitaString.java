@@ -43,6 +43,9 @@ import java.util.Map;
 public class NumberofGoodWaystoSplitaString {
     public static void main(String[] args) {
         System.out.println(new NumberofGoodWaystoSplitaString().numSplits("aacaba"));
+        System.out.println(new NumberofGoodWaystoSplitaString().numSplits("abcd"));
+        System.out.println(new NumberofGoodWaystoSplitaString().numSplits("aaaaa"));
+        System.out.println(new NumberofGoodWaystoSplitaString().numSplits("acbadbaada"));
     }
     /**
      * 1, use a arrays or map, rc and lc, to cache counts for each unique charater on right and left subarrays.
@@ -55,7 +58,7 @@ public class NumberofGoodWaystoSplitaString {
         for (char c : s.toCharArray()) if (rc[c - 'a']++ == 0) r++;/**先把所有的unique的字母个数记录下来*/
         for (char c : s.toCharArray()) {/**从头开始遍历*/
             if (lc[c - 'a']++ == 0) l++;/**左边第一次出现的记录*/
-            if (--rc[c - 'a'] == 0) r--;
+            if (--rc[c - 'a'] == 0) r--;/**为什么这些++， --写在括号里面，这不是为了装杯，而是这样写你不进if那个动作也会发生*/
             if (l == r) res++;
         }
         return res;
