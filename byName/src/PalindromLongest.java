@@ -20,11 +20,17 @@
  */
 
 public class PalindromLongest {
-//    public static void main(String[] args) {
-//        System.out.println(new PalindromLongest().longestPalindrom("abccccdd"));
-//        System.out.println(new PalindromLongest().longestPalindrom("abccba"));
-//    }
-////    public String longestPalindrom(String s){
-////
-////    }
+    public static void main(String[] args) {
+        System.out.println(new PalindromLongest().longestPalindrom("abccccdd"));
+        System.out.println(new PalindromLongest().longestPalindrom("abccba"));
+    }
+    public int longestPalindrom(String s){
+        int[] cnt = new int[128];
+        int odd = 0;
+        for(char c: s.toCharArray()) cnt[c-0]++;
+        for(int i : cnt){
+            if(i%2 != 0) odd++;
+        }
+        return odd == 0? s.length(): s.length()-odd+1 ;
+    }
 }
