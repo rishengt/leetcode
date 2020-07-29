@@ -19,21 +19,20 @@ public class PalindromSubstring {
     }
 
     public String longestPalindrome(String s){
-        if(s==null || s.length() == 0) return s;
         boolean[][] dp = new boolean[s.length()][s.length()];
-        int right = 0;
-        int left = 0;
-        for(int j = 1; j<s.length();j++){
-            for(int i = 0; i<j; i++){
-                if(s.charAt(i)==s.charAt(j)&&(dp[i+1][j-1]||j-i<=2)){
-                    dp[i][j] = true;
-                    if(j-i>left-right){
-                        right = j;
-                        left = i;
+        int compare = Integer.MIN_VALUE;
+        String ans="";
+        for(int i = 0; i<s.length();i++){
+            for(int j = 0; j<=i; j++){
+                dp[j][i] = s.charAt(i)==s.charAt(j)&&(i-j<=2||dp[j+1][i-1]);
+                if(dp[j][i]){
+                    if(i-j+1>compare){
+                        compare = Math.max(compare,i-j+1);
+                        ans = s.substring(j,i+1);
                     }
                 }
             }
         }
-        return s.substring(left,right+1);
+        return ans;
     }
 }
