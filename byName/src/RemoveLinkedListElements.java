@@ -15,23 +15,9 @@ public class RemoveLinkedListElements {
         head.next.next.next.next = new ListNode(4);
         head.next.next.next.next.next = new ListNode(5);
         head.next.next.next.next.next.next = new ListNode(6);
-        System.out.println(new RemoveLinkedListElements().removeElements(head,6));
+//        System.out.println(new RemoveLinkedListElements().removeElements(head,6));
     }
-    public ListNode removeElements(ListNode head, int val) {
-        ListNode pointer = head;
-        while(head.next != null){
-            ListNode temp = head.next;
-            if(temp.val == val){
-                if(temp.next == null){
-                    head.next = null;
-                    break;
-                }
-                else {
-                    head.next = temp.next;
-                }
-            }
-            head = head.next;
-        }
-        return pointer;
-    }
+//    public ListNode removeElements(ListNode head, int val) {
+//
+//    }
 }
