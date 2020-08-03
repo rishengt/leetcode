@@ -16,6 +16,7 @@ import java.util.Stack;
  * Note: The length of given array won't exceed 10000.
  */
 public class NextGreaterElementII {
+    /** 这题也不能用hashmap，因为有重复的 element*/
     public static void main(String[] args) {
         NextGreaterElementII n = new NextGreaterElementII();
         int[] k = n.nextGreaterElements(new int[]{1,2,1});
