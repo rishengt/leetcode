@@ -41,11 +41,11 @@ public class SpiralMatrix {
             seen[r][c] = true;
             int cr = r + dr[di];
             int cc = c + dc[di];
-            if (0 <= cr && cr < R && 0 <= cc && cc < C && !seen[cr][cc]){
+            if (0 <= cr && cr < R && 0 <= cc && cc < C && !seen[cr][cc]){/**边界条件嘛，还没到那就一切照旧咯*/
                 r = cr;
                 c = cc;
             } else {
-                di = (di + 1) % 4;/**余数一直悟不了，难啊*/
+                di = (di + 1) % 4;/**我突然受到了数学之神的呼唤，领悟了一波，4个方向嘛，就mod 4 咯，加一是为了改方向。*/
                 r += dr[di];
                 c += dc[di];
             }
