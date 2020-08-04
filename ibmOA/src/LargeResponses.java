@@ -37,7 +37,7 @@ public class LargeResponses {
         for(String line: lines){
             line = line.trim();
             String words[] = line.split("\\s");/**white space*/  /**"\\W" non-word*/
-            if(Long.parseLong(words[words.length-1]) > 50001){
+            if(Long.parseLong(words[words.length-1]) > 5001){
                 count ++;
                 bytes += Long.parseLong(words[words.length-1]);
             }
