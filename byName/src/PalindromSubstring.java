@@ -23,8 +23,8 @@ public class PalindromSubstring {
         int compare = Integer.MIN_VALUE;
         String ans="";
         for(int i = 0; i<s.length();i++){
-            for(int j = 0; j<=i; j++){
-                dp[j][i] = s.charAt(i)==s.charAt(j)&&(i-j<=2||dp[j+1][i-1]);
+            for(int j = 0; j<=i; j++){ /**注意j的边界。。。。。*/
+                dp[j][i] = s.charAt(i)==s.charAt(j)&&(i-j<=2||dp[j+1][i-1]);/**括号里的顺序也是要命的，因为刚开始i=0，i-1会炸如果你写前面的话*/
                 if(dp[j][i]){
                     if(i-j+1>compare){
                         compare = Math.max(compare,i-j+1);
