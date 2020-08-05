@@ -48,7 +48,7 @@ public class BSTValidate {
     }
     public boolean isBST(TreeNode root){
         return isBST(root, null,null);
-    }
+    }/**哇，这个传参，这个判断条件，你妈的精髓到炸裂啊*/
     public boolean isBST(TreeNode root, TreeNode min, TreeNode max){
         if(root == null) return true;
         if(min!=null && root.val <=min.val) return false;
