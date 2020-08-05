@@ -44,8 +44,8 @@ public class LargestBSTSubtree {
         root.right.right.left = new TreeNode(1);
 //        TreeNode root = new TreeNode(3);
 //        root.left = new TreeNode(1);
-//        System.out.println(new LargestBSTSubtree().largestBSTSubtree(root));//2  why???
-        System.out.println(new LargestBSTSubtree().largestBSTSubtreeII(root));//1
+        System.out.println(new LargestBSTSubtree().largestBSTSubtree(root));//2  why???
+//        System.out.println(new LargestBSTSubtree().largestBSTSubtreeII(root));//1
     }
     int max = 0;
     public int largestBSTSubtree(TreeNode root) {
