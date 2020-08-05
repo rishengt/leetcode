@@ -58,19 +58,21 @@ public class LargestBSTSubtree {
         if(root == null) return res;
         int[] left = helper(root.left);
         int[] right = helper(root.right);
-
+                            /** left[2]是代表当前BST的left node？？*/
         if(left[0] == -1 || right[0] == -1 || root.val <= left[2] || root.val >= right[1]){
-            res[0] = -1; res[1] = 0; res[2] = 0;
+            res[0] = -1; res[1] = 0; res[2] = 0;                  /** right【1】代表的是当前BST的right node？？*/
             return res;
         }
         res[0] = left[0] + 1 + right[0];
+        /**res[0]肯定就是记录那颗BST的size的了*/
         max = Math.max(res[0], max);
-        res[1] = Math.min(left[1], root.val);
-        res[2] = Math.max(right[2], root.val);
+        res[1] = Math.min(left[1], root.val);/**[1]用来储存的左边较小的边界的*/
+        res[2] = Math.max(right[2], root.val);/**[2]用来存右边较大的边界的*/
         return res;
     }
 
-    public int largestBSTSubtree(TreeNode root){
+    /**************************************** 感觉我只能用套娃写法了兄弟。。。LC 5%************************************************/
+    public int largestBSTSubtreeII(TreeNode root){
         if(root == null) return 0;
         int max = Integer.MIN_VALUE;
         List<TreeNode> list = new ArrayList<>();
