@@ -27,10 +27,48 @@ import java.util.List;
  * 1 <= sentence words length <= 1000
  */
 public class ReplaceWords {
-//    public static void main(String[] args) {
-//        System.out.println(new ReplaceWords().replaceWords(Arrays.asList("cat", "bat","rat"), "the cattle was rattled by the battery"));
-//    }
-//    public String replaceWords(List<String> dict, String sentence) {
-//
-//    }
+    public static void main(String[] args) {
+        System.out.println(new ReplaceWords().replaceWords(Arrays.asList("a", "aa","aaa","aaaa"), "a aa a aaaa aaa aaa aaa aaaaaa bbb baba ababa"));
+    }
+    class TrieNode{
+        TrieNode[] children;
+        String word;
+        boolean flag;
+        public TrieNode(){
+            this.children = new TrieNode[26];
+        }
+    }
+    public String replaceWords(List<String> dict, String sentence) {
+        String ans = "";
+        TrieNode root = new TrieNode();
+        for(String s: dict){
+            TrieNode pointer = root;
+            for(int i = 0; i< s.length(); i++){
+                char c = s.charAt(i);
+                if(pointer.children[c-'a'] == null){
+                    pointer.children[c-'a'] = new TrieNode();
+                }
+                pointer = pointer.children[c-'a'];
+            }
+            pointer.word = s;
+        }
+        String[] k = sentence.split("\\s+");
+        for(String s: k){
+            TrieNode pointer = root;
+            String word = "";
+            for(int i = 0; i< s.length(); i++){
+                char c=s.charAt(i);
+                if(pointer.children[c-'a'] == null) break;
+                if(pointer.children[c-'a'] !=null){
+                    pointer = pointer.children[c-'a'];
+                }
+                if(pointer.word != null){
+                    word = pointer.word;
+                    break;
+                }
+            }
+            ans = word == ""?ans+s+" ": ans+word+" ";
+        }
+        return ans.trim();
+    }
 }
