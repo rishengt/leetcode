@@ -39,7 +39,6 @@ public class FindLongestAwesomeSubstring {
 //        System.out.println(new FindLongestAwesomeSubstring().longestAwesome("213123"));
 //        System.out.println(new FindLongestAwesomeSubstring().longestAwesome("00"));
     }
-    boolean oneOdd = true;
     public int longestAwesome(String s) {
         int[] count = new int[10];
         int ans = 0;
@@ -49,23 +48,30 @@ public class FindLongestAwesomeSubstring {
             char c = s.charAt(i);
             count[c-'0']++;
             int key = countToKey(count);
-            if(map.containsKey(key) && oneOdd){
-                ans = Math.max(ans, i- map.get(key));
-            }else if(oneOdd&&!map.containsKey(key)){
+            if(map.containsKey(key)){
+                ans = Math.max(ans, map.get(key));
+            }else if(!map.containsKey(key)){
                 map.put(key,i);
+            }
+            for(int j = 0; j<10; j++){
+                int newKey = key;
+                if(((key>>j)&1) == 0){ /**这东西证明key的第j位是0， 我们要把它变成1*/
+                    newKey += 1<<j;
+                }else{
+                    newKey -=1<<j;
+                }
+                if(map.containsKey(newKey)){
+                    ans = Math.max(ans, map.get(newKey));
+                }
             }
         }
         return ans;
     }
 
     public int countToKey(int[] count){
-        this.oneOdd = true;
-        int odd = 0;
         int key = 0;
         for(int i = 0; i<count.length; i++){
             if(count[i] %2 !=0){
-                odd++;
-                if(odd>1)this.oneOdd = false;
                 key += 1<<i;
             }
         }
