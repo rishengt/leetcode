@@ -33,7 +33,7 @@ public class ConstructBinaryTreefromPreorderandInorderTraversal {
         int index = map.get(root.val);
         int leftcount = index - inStart;
         root.left = buildTree(preorder, preStart+1, preStart+leftcount, inorder, inStart, index-1,map);
-        root.right = buildTree(preorder, preEnd-(inEnd-index)+1, preEnd, inorder, index+1, inEnd, map);
+        root.right = buildTree(preorder, /**preEnd-(inEnd-index)+1*/preStart+leftcount+1, preEnd, inorder, index+1, inEnd, map);
         return root;
     }
 }
