@@ -31,8 +31,8 @@ import java.util.*;
  */
 public class SlidingWindowMaximum {
     public static void main(String[] args) {
-        int ans[] = new SlidingWindowMaximum().maxSlidingWindow(new int[]{1 , 3 , -1, -3 , 5 , 3 , 6 , 7}, 3);
-        for(int k: ans) System.out.println(k);
+//        int ans[] = new SlidingWindowMaximum().maxSlidingWindow(new int[]{1 , 3 , -1, -3 , 5 , 3 , 6 , 7}, 3);
+//        for(int k: ans) System.out.println(k);
     }
 
     /*******这种有重复element的虽然已经没有傻逼到用hashmap去存但是还是没能come up存index然后通过index去查原数的想法，还是菜🐶一条，草****/
