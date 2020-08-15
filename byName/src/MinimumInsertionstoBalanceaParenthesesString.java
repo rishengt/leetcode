@@ -50,7 +50,7 @@ public class MinimumInsertionstoBalanceaParenthesesString {
     }
     public int minInsertions(String s) {
         int ans=0;/**这个将要添加的扩号（包括左括号和右括号）*/
-        int cnt=0;/**这个是需要的右括号*/
+        int cnt=0;/**这个其实是左右括号的积分，（ 积两分， ） 积-1 分， 然后根据不同情况而变化*/
         for(char ch:s.toCharArray()){
             if(ch=='(') {
                 cnt+=2; /**如果是（，那么它需要两个）来抵消*/
