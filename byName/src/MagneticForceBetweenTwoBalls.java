@@ -1,3 +1,5 @@
+import java.util.Arrays;
+
 /**
  * In universe Earth C-137, Rick discovered a special form of magnetic force between two balls if they are put in his new invented basket.
  * Rick has n empty baskets, the ith basket is at position[i],
@@ -32,7 +34,34 @@
  * 2 <= m <= position.length
  */
 public class MagneticForceBetweenTwoBalls {
+    public static void main(String[] args) {
+        System.out.println(new MagneticForceBetweenTwoBalls().maxDistance(new int[]{1,2,3,4,7},3));
+        System.out.println(new MagneticForceBetweenTwoBalls().maxDistance(new int[]{5,4,3,2,1,1000000000},2));
+    }
     public int maxDistance(int[] position, int m) {
-
+        Arrays.sort(position);
+        int start = 0, end = position[position.length-1], max = 0;
+        while(start<=end){
+            int mid = (start+end)>>>1;
+            if(canPut(position,m,mid)){
+                max = mid;
+                start = mid+1;
+            }else{
+                end = mid -1;
+            }
+        }
+        return max;
+    }
+    
+    public boolean canPut(int[] position, int m, int distance){
+        int last = position[0];
+        int count = 1;/**???*/
+        for(int i = 0 ;i<position.length; i++){
+            if(position[i]-last >=distance){
+                count++;
+                last = position[i];
+            }
+        }
+        return count>=m;
     }
 }
