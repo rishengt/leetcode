@@ -12,5 +12,8 @@ public class Entry {
             }
         }
         System.out.println(list);
+        for(Map.Entry e: map.entrySet()){
+            System.out.println(e.size()); /** 这个你get 不到，因为你没在for loop 里面把type cast了所以现在e 的key 跟value 都变成object了，你见过哪个object有method的？？*/
+        }
     }
 }
