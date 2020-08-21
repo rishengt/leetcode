@@ -135,7 +135,7 @@ public class PartitionEqualSubsetSum {
         if(sum == target) return true;
         if(start == nums.length) return false;
         if(sum > target) return false;
-        for(int i = 0; i<nums.length; i++){
+        for(int i = start; i<nums.length; i++){
             if(visited[i]) continue;
             if(i>0 && nums[i-1] == nums[i] && visited[i-1] == false) continue;
             visited[i] = true;
