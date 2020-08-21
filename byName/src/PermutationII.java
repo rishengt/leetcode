@@ -39,7 +39,7 @@ public class PermutationII {
         }
         for(int i=0;i<nums.length;i++){
             if(used[i]) continue;
-            if(i>0 &&nums[i-1]==nums[i] && !used[i-1]) continue;
+            if(i>0 &&nums[i-1]==nums[i] && !used[i-1]) continue;/**哇，终于有个人把这里稍微讲明白点了，这里代表了我们遇到过了那个数，但是我们觉得那个数不合适，所以再次遇到其实也不用考虑了*/
             //if(i>0 &&nums[i-1]==nums[i] && used[i-1]) continue; 去掉！ 也可以，只是比较慢，神奇，但这条boolean数组不能少
             used[i]=true;
             list.add(nums[i]);
