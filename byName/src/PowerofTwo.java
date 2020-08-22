@@ -22,4 +22,10 @@ public class PowerofTwo {
         while(n%2 == 0) n/=2;
         return n == 1;
     }
+
+    /**众所周知，一个数如果是2的指数级别，那么它的二进制形式有且只有一个1。。那么。。。。*/
+    public boolean isPowerOfTwoII(int n){
+        if(n<=0) return false;
+        return (n&(n-1)) == 0;
+    }
 }
