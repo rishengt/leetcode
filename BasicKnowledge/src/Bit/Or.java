@@ -8,5 +8,7 @@ public class Or {
         System.out.println(false || true);
         boolean k = true;
         System.out.println(k |= false);
+        k = k||false;
+        System.out.println(k);
     }
 }

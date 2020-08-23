@@ -42,7 +42,23 @@
  * grid consists only of lowercase English letters.
  */
 public class DetectCyclesin2DGrid {
-    public boolean containsCycle(char[][] grid) {
-
-    }
+    /**这道吊题跟wordSearch不可畏不像了，*/
+    /**只遍历相同的字母，不遍历上一步的位置，要是还是回到原地，代表有cycle*/
+//    public boolean containsCycle(char[][] grid) {
+//        for(int i = 0; i<grid.length; i++){
+//            for(int j = 0; j<grid[0].length; j++){
+//
+//            }
+//        }
+//    }
+//    public boolean dfs(char[][] grid, char start, int[][] a, int x, int y, int steps){
+//        if(x<0 || x== grid.length || y<0 || y == grid.length || grid[x][y] != start) return false;
+//        if(a[x][y] !=0){
+//            if(a[x][y] - steps >2) return true;
+//            else{
+//                return false;
+//            }
+//        }
+//        return dfs
+//    }
 }
