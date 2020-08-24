@@ -24,8 +24,8 @@
  * Example 2:
  * Input: stoneValue = [7,7,7,7,7,7,7]
  * Output: 28
- * Example 3:
  *
+ * Example 3:
  * Input: stoneValue = [4]
  * Output: 0
  *
@@ -37,6 +37,10 @@
  */
 public class StoneGameV {
 //    public int stoneGameV(int[] stoneValue) {
+//
+//    }
+//
+//    public int dfsWithMemoization(int[] stoneValue, int left, int right, int[][] dp, int[] prefixSum){
 //
 //    }
 }
