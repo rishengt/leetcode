@@ -36,11 +36,44 @@
  * 1 <= stoneValue[i] <= 10^6
  */
 public class StoneGameV {
-//    public int stoneGameV(int[] stoneValue) {
-//
-//    }
-//
-//    public int dfsWithMemoization(int[] stoneValue, int left, int right, int[][] dp, int[] prefixSum){
-//
-//    }
+    public static void main(String[] args) {
+        System.out.println(new StoneGameV().stoneGameV(new int[]{6,2,3,4,5,5}));
+        System.out.println(new StoneGameV().stoneGameV(new int[]{7,7,7,7,7,7,7}));
+        System.out.println(new StoneGameV().stoneGameV(new int[]{4}));
+    }
+    public int stoneGameV(int[] stoneValue) {
+        int[] prefixSum = new int[stoneValue.length+1];
+        for(int i = 0; i<stoneValue.length; i++){
+            prefixSum[i+1] = prefixSum[i]+stoneValue[i];
+        }
+        int[][] dp = new int[stoneValue.length][stoneValue.length];
+        return dfsWithMemoization(stoneValue,0,stoneValue.length-1,dp,prefixSum);
+    }
+
+    public int dfsWithMemoization(int[] stoneValue, int left, int right, int[][] dp, int[] prefixSum){
+        /**如果左右指针碰头代表数组剩下一个，我没得选，返回虚无，0*/
+        if(left == right) return 0;
+        /**若果剩下两个，返回较小的那个*/
+        if(left == right -1) return Math.min(stoneValue[left],stoneValue[right]);
+        /**memoization常规操作*/
+        if(dp[left][right] != 0) return dp[left][right];
+        /**工具数，dp待会儿指向它*/
+        int res = 0;
+        /**把数组所有的分割可能都遍历一遍*/
+        /**left[left,i], right[i+1,right]*/
+        for(int i = left; i<right; i++){
+            /**这里可以细品一下，为什么右边界要加一而左不用*/
+            int l = prefixSum[i+1] - prefixSum[left];
+            int r = prefixSum[right+1] - prefixSum[i+1];
+            if(l<r){/**如果l小，选l*/
+                res = Math.max(res, l+dfsWithMemoization(stoneValue,left,i,dp,prefixSum));
+            }else if(l>r){
+                res = Math.max(res,r+dfsWithMemoization(stoneValue,i+1,right,dp,prefixSum));
+            }else{/**两边一样，选下一次赚得多的一边。。。妙啊！！！！*/
+                res = Math.max(res, Math.max(l+dfsWithMemoization(stoneValue,left,i,dp,prefixSum), r+dfsWithMemoization(stoneValue,i+1,right,dp,prefixSum)));
+            }
+        }
+        dp[left][right] = res;
+        return res;
+    }
 }
