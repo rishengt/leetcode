@@ -76,9 +76,13 @@ public class FindLatestGroupofSizeM {
      */
     public int findLatestStep(int[] arr, int m) {
         int res = -1, n = arr.length;
+        /**length用来模拟bit的变化*/      /**count【i】代表group长度为i出现的次数*/
         int[] length = new int[n + 2], count = new int[n + 1];
         for (int i = 0; i < n; ++i) {
+            /**这一行勉强可以理解，左看右看嘛*/
             int a = arr[i], left = length[a - 1], right = length[a + 1];
+            /**这里就很精髓了，过了几个小时就忘了，重点照顾一下。Note that the length value is updated on the leftmost and the rightmost bit of the group.
+             The length value inside the group may be out dated. 嘛其lee215大神已经说的很清楚明白了*/
             length[a] = length[a - left] = length[a + right] = left + right + 1;
             count[left]--;
             count[right]--;
