@@ -1,3 +1,5 @@
+import java.util.Arrays;
+
 /**
  * Alice and Bob continue their games with piles of stones. There are several stones arranged in a row,
  * and each stone has an associated value which is an integer given in the array stoneValue.
@@ -54,11 +56,11 @@
  */
 public class StoneGameIII {
     public static void main(String[] args) {
-        System.out.println(new StoneGameIII().playII(new int[]{1,2,3,7}));
-        System.out.println(new StoneGameIII().playII(new int[]{1,2,3,-9}));
-        System.out.println(new StoneGameIII().playII(new int[]{1,2,3,6}));
-        System.out.println(new StoneGameIII().playII(new int[]{1,2,3,-1,-2,-3,7}));
-        System.out.println(new StoneGameIII().playII(new int[]{-1,-2,-3}));
+        System.out.println(new StoneGameIII().playIII(new int[]{1,2,3,7}));
+        System.out.println(new StoneGameIII().playIII(new int[]{1,2,3,-9}));
+        System.out.println(new StoneGameIII().playIII(new int[]{1,2,3,6}));
+        System.out.println(new StoneGameIII().playIII(new int[]{1,2,3,-1,-2,-3,7}));
+        System.out.println(new StoneGameIII().playIII(new int[]{-1,-2,-3}));
     }
 
     /*********************************************  minimax  **************************************************************/
@@ -101,8 +103,6 @@ public class StoneGameIII {
      * Take A[i] + A[i+1], diff2 = take - dp[i+2]
      * Take A[i] + A[i+1] + A[i+2], diff3 = take - dp[i+3]
      * We want to maximize difference in the score of the current player against the opponent, so dp[i] = max(diff1, diff2, diff3)
-     * @param stoneValue
-     * @return
      */
     public String playII(int[] stoneValue) {
         int n = stoneValue.length;
@@ -121,4 +121,43 @@ public class StoneGameIII {
         return "Tie";
     }
 
+    /**
+     * 我们令dp[i]表示已经有i堆石头被拿走的情况下，当前玩家在后续的操作中最多总共能拿到多少分？
+     *
+     * 对于当前决策而言，玩家有三种选择，拿走第1堆，拿走2堆，拿走3堆。
+     *
+     * 我们分析第一种情况，玩家当前只拿走一堆，那么玩家可以收益stones[i+1]。接下来对手面临的问题是：已经有i+1对石头被拿走的情况下，在后续的操作中最多能拿多少分？
+     * 显然对手的答案有着相同的定义，就是dp[i+1]。同时，这意味着，对手获取dp[i+1]的同时，我方能够获取的分数就是sum[i+2:n]-dp[i+1]。
+     * 所以，退回到玩家的当前状态，说明如果玩家当前只拿走一堆，那么玩家的总收益就是 dp[i] = stones[i+1] + sum[i+2:n]-dp[i+1]
+     *
+     * 以上的结论可以推广到：玩家当前决定拿走k堆。那么该轮玩家的收益是stones[i+1:i+k]。对手之后的总收益是dp[i+k]，此消彼长，玩家之后的总收益就是sum[i+k+1:n]-dp[i+k]。
+     * 所以当前决策所对应的玩家总收益就是dp[i] = stones[i+1:i+k] + sum[i+k+1:n]-dp[i+1]
+     *
+     * 因此，dp[i]的最优解就是在k=1,2,3中选择一个对应的dp[i]最大值。
+     *
+     * 由此我们看出dp[i]的值取决于下标更大的dp值。显然，我们对于dp的计算，下标应该按照从大到小的顺序。
+     *
+     * 最终的答案是考察dp[0]。即玩家在最初始的状态下（还没有拿走任何石头）能够得到的最大分数，与对手能够得到的最大分数totalSum-dp[0]作比较。
+     */
+    public String playIII(int[] stones){
+        int n = stones.length;
+        int[] dp = new int[n+1];
+        Arrays.fill(dp,Integer.MIN_VALUE);
+        dp[n] = 0;/**当石头全部被拿走的时候，没有任何收益。。。*/
+        int[] prefixSum = new int[n+1];
+        for(int i = 1; i<prefixSum.length; i++){
+            prefixSum[i] = prefixSum[i-1] + stones[i-1];
+        }
+        for(int i = n-1;i>=0; i--){
+            int sum = 0;
+            for(int k = 1; k<=3; k++){
+                if(i+k>n) break;
+                sum += stones[i+k-1];
+                dp[i] = Math.max(dp[i], sum+prefixSum[n]-prefixSum[i+k]-dp[i+k]);
+            }
+        }
+        if(dp[0]>prefixSum[n]-dp[0]) return "Alice";
+        if(dp[0]<prefixSum[n]-dp[0]) return "Bob";
+        return "Tie";
+    }
 }
