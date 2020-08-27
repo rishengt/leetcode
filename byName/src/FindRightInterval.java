@@ -40,25 +40,21 @@
  */
 import java.util.*;
 public class FindRightInterval {
-    class interval{
-        int index;
-        int start;
-        int end;
-        public interval(int index, int start,int end){
-            this.index = index;
-            this.start = start;
-            this.end = end;
-        }
+    public static void main(String[] args) {
+        System.out.println(new FindRightInterval().findRightInterval(new int[][]{{1,2}}));
+        System.out.println(new FindRightInterval().findRightInterval(new int[][]{{3,4},{2,3},{1,2}}));
+        System.out.println(new FindRightInterval().findRightInterval(new int[][]{{1,4},{2,3},{1,2}}));
     }
     public int[] findRightInterval(int[][] intervals) {
         int[] ans = new int[intervals.length];
-        List<interval> list = new ArrayList<>();
+        TreeMap<Integer, Integer> map = new TreeMap<>();
         for(int i = 0; i<intervals.length; i++){
-            list.add(new interval(i,intervals[i][0],intervals[i][1]));
+            map.putIfAbsent(intervals[i][0],i);
         }
-        Collections.sort(list,(a,b)->b.end-a.end);
-        for(int i = 0; i<list.size(); i++){
-
+        for(int i = 0; i<intervals.length; i++){
+            Map.Entry<Integer, Integer> entry = map.ceilingEntry(intervals[i][1]);
+            ans[i] = entry == null?-1:entry.getValue();
         }
+        return ans;
     }
 }
