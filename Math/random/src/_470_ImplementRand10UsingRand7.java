@@ -32,7 +32,8 @@
  */
 public class _470_ImplementRand10UsingRand7 {
     public int rand7(){
-        return (int)Math.random()*(7-1)+1;
+        /**你把它变成int的话最大数要先加一，不然7永远出不来*/
+        return (int)(Math.random()*(8-1)+1);
     }
     public int rand10(){
         int a,b,c;
