@@ -45,12 +45,18 @@
  * Output: false
  */
 public class _10_RegularExpressionMatching {
+//    public static void main(String[] args) {
+//        System.out.println(new _10_RegularExpressionMatching().isMatch("aa","a"));
+//        System.out.println(new _10_RegularExpressionMatching().isMatch("aa","a*"));
+//        System.out.println(new _10_RegularExpressionMatching().isMatch("ab",".*"));
+//        System.out.println(new _10_RegularExpressionMatching().isMatch("aab","c*a*b"));
+//        System.out.println(new _10_RegularExpressionMatching().isMatch("mississippi","mis*is*p*."));
+//    }
     /**双序列套路：
      *  dp[i][j]: 表示s[1:i] 和 p[1:j]的子问题的解
      *  想方设法把 dp[i][j] 向 dp[i-1][j], dp[i][j-1] 和 dp[i-1][j-1] 转移
      *  最终答案 dp[s.length()][p.length()]
      */
 //    public boolean isMatch(String s, String p){
-//
 //    }
 }
