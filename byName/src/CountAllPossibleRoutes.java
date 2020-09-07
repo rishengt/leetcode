@@ -78,13 +78,13 @@ public class CountAllPossibleRoutes {
         int count = 0;
         for(int i = 0; i<locations.length; i++){
             if(i == start) continue;
-            if(i == finish && fuel - Math.abs(locations[i]-locations[start])>= 0){
-                count++;
-                count %= 1000000007;
-            }
             if(fuel - Math.abs(locations[i]-locations[start])>= 0)
                 count += dfs(dp,locations,i, finish,fuel - Math.abs(locations[i]-locations[start]));
                 count %= 1000000007;
+        }
+        if(start == finish){
+            count++;
+            count %= 1000000007;
         }
         dp[start][fuel] = count;
         return count;
