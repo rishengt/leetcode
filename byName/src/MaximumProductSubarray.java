@@ -17,15 +17,18 @@ public class MaximumProductSubarray {
         System.out.println(new MaximumProductSubarray().maxProduct(new int[]{2,3,-2,4}));
         System.out.println(new MaximumProductSubarray().maxProduct(new int[]{-2,0,-1}));
         System.out.println(new MaximumProductSubarray().maxProduct(new int[]{-2,3,-4}));
+        System.out.println(new MaximumProductSubarray().maxProduct(new int[]{-2,-3,-4}));
     }
     public int maxProduct(int[] nums) {
         int cur = nums[0];
         int max = nums[0];
         int min = nums[0];
         for(int i = 1; i<nums.length; i++){
-            cur = Math.max(nums[i], Math.max(cur*nums[i], min*nums[i]));
-            min = Math.min(nums[i], Math.min(cur*nums[i],min*nums[i]));
-            max = Math.max(max,cur);
+            int newCur = Math.max(nums[i], Math.max(cur*nums[i], min*nums[i]));
+            int newMin = Math.min(nums[i], Math.min(cur*nums[i],min*nums[i]));
+            cur = newCur;
+            min = newMin;
+            max = Math.max(max,newCur);
         }
         return max;
     }
