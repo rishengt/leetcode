@@ -1,3 +1,6 @@
+import java.util.HashMap;
+import java.util.Map;
+
 /**
  * You are given a list of preferences for n friends, where n is always even.
  *
@@ -57,6 +60,31 @@
  */
 public class CountUnhappyFriends {
     public int unhappyFriends(int n, int[][] preferences, int[][] pairs) {
+        /** store pairs mapping*/
+        int[] map = new int[n];
+        for(int[] i: pairs){
+            map[i[0]] = i[1];
+            map[i[1]] = i[0];
+        }
+        int ans = 0;
+        Map<Integer, Integer> prefer[] = new Map[n];
+        for(int i = 0; i<n; i++){
+            for(int j = 0; j<preferences[0].length; j++){
+                if(prefer[i] == null) prefer[i] = new HashMap<>();
+                prefer[i].put(preferences[i][j],j);
+            }
+        }
 
+        /**这里一直参悟不透。。。。。**/
+        for(int i = 0; i<n; i++){
+            for(int j : preferences[i]){
+                if(prefer[j].get(i) < prefer[j].get(map[j])
+                        && prefer[i].get(map[i]) > prefer[i].get(j)){ // Based on the definition of "unhappy"...
+                    ans++;
+                    break;
+                }
+            }
+        }
+        return ans;
     }
 }
