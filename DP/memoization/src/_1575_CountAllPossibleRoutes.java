@@ -57,6 +57,10 @@
  */
 public class _1575_CountAllPossibleRoutes {
 //    public int countRoutes(int[] locations, int start, int finish, int fuel) {
-
+//
+//    }
+//
+//    public int dfs(int[] locations, int start, int finish,int fuel, int[][] dp){
+//
 //    }
 }
