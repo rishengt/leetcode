@@ -65,4 +65,20 @@ public class HouseRobber {
         memo[start] = ans;/**这了细啊，储存，dp！！！*/
         return ans;
     }
+
+    public int twoDdp(int[] nums){
+        if(nums.length == 0 || nums == null) return 0;
+        int N = nums.length;
+        int[][] dp = new int[N+1][2];
+        /**第0th轮的时候不抢*/
+        dp[0][0] = 0;
+        /**第0th轮的时候抢*/
+        dp[0][1] = nums[0];
+        for(int i = 1; i<N; i++){
+            /****/
+            dp[i][0] = Math.max(dp[i-1][0],dp[i-1][1]);
+            dp[i][1] = dp[i-1][0]+nums[i];
+        }
+        return Math.max(dp[N-1][0], dp[N-1][1]);
+    }
 }
