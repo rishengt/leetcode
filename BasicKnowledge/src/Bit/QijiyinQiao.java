@@ -31,5 +31,9 @@ public class QijiyinQiao {
 
         /**减一*/
         System.out.println(~-1);//0
+
+        /**
+         * if a ^ b = c, then a ^ c = b;
+         */
     }
 }
