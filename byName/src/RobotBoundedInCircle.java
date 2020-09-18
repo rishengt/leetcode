@@ -67,19 +67,15 @@ public class RobotBoundedInCircle {
      * @return
      */
     public boolean isRobotBounded(String instructions) {
-        int x = 0, y = 0, d[] = new int[]{0,1};
-        for(int i = 0; i<instructions.length(); i++){
-            if(instructions.charAt(i) == 'G'){
-                x+=d[0];
-                y+=d[1];
-            }else if(instructions.charAt(i) == 'R'){
-                d[0] = d[1];
-                d[1] = -d[0];
-            }else if(instructions.charAt(i) == 'L'){
-                d[0] = -d[1];
-                d[1] = d[0];
+        int x = 0, y = 0, i = 0, d[][] = {{0, 1}, {1, 0}, {0, -1}, { -1, 0}};
+        for (int j = 0; j < instructions.length(); ++j)
+            if (instructions.charAt(j) == 'R')
+                i = (i + 1) % 4;
+            else if (instructions.charAt(j) == 'L')
+                i = (i + 3) % 4;
+            else {
+                x += d[i][0]; y += d[i][1];
             }
-        }
-        return (x == 0 && y == 0) || (d[0] != 0 && d[1] !=1);
+        return x == 0 && y == 0 || i > 0;
     }
 }
