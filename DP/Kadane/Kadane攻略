@@ -1,0 +1,10 @@
+給定一條數組 [x,x,x,x,x,x,]
+sum
+dp[i] -> Math.max(dp[i-1] + x, x)
+
+product
+min[i] -> Math.min(min[i-1]*x, x, max[i-1]*x);
+max[i] -> Math.max(max[i-1]*x, x, min[i-1]*x);
+
+
+想方設法把上一個狀態跟當前數對比也好相乘也好，反正要得出一個符合題目追求的目標。

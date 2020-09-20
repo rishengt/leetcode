@@ -38,7 +38,7 @@ public class MaximumNumberofNonOverlappingSubarraysWithSumEqualsTarget {
     /**顺便一题，PathSumIII的最优解也是用的这种思路，你小子还没去好好研究呢。。。。。。*/
 
     public static void main(String[] args) {
-        System.out.println(new MaximumNumberofNonOverlappingSubarraysWithSumEqualsTarget().maxNonOverlapping(new int[]{1,1,1,1,1},2));
+        System.out.println(new MaximumNumberofNonOverlappingSubarraysWithSumEqualsTarget().maxNonOverlapping(new int[]{1,-1,1,-1,1},0));
     }
 
     /**
