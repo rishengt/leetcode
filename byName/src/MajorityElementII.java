@@ -16,21 +16,26 @@ import java.util.List;
  * Output: [1,2]
  */
 public class MajorityElementII {
-    /**作为一个配套问题我觉得这题最大的启发性意义就是让你想明白n/3 最多能找到两个合适的答案。。*/
+    public static void main(String[] args) {
+        System.out.println(new MajorityElementII().majorityElement(new int[]{8,8,7,7,7}));
+    }
+    /**作为一个配套问题我觉得这题最大的启发性意义就是让你想明白n/3 最多能找到两个合适的答案。。
+     * 还有if statement得前后顺序实在是太关键了。。。。。。
+     * */
     public List<Integer> majorityElement(int[] nums) {
         List<Integer> ans = new ArrayList<>();
         if(nums.length==0 || nums == null) return ans;
         int cnt1 = 0, cnt2 = 0, num1 = 0, num2 = 0;
         for(int num: nums){
-            if(cnt1 == 0){
+            if(num1 == num){
+                cnt1++;
+            }else if(num2 == num){
+                cnt2++;
+            }else if(cnt1 == 0){
                 num1 = num;
                 cnt1++;
             }else if(cnt2 == 0){
                 num2 = num;
-                cnt2++;
-            }else if(num == num1){
-                cnt1++;
-            }else if(num == num2){
                 cnt2++;
             }else{
                 cnt1--;

@@ -1,3 +1,5 @@
+求数组里最大subarray和或者乘积的时候用的
+
 給定一條數組 [x,x,x,x,x,x,]
 sum
 dp[i] -> Math.max(dp[i-1] + x, x)

@@ -40,6 +40,6 @@
  */
 public class _1567_MaximumLengthofSubarrayWithPositiveProduct {
     public int getMaxLen(int[] nums) {
-
+        return 0;
     }
 }
