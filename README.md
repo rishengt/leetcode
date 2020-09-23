@@ -5,10 +5,15 @@
 
     [1278.Palindrome Partitioning III](DP/区间型I/src/_1278_PalindromePartitioningIII.java)
 
-#### [图论](/Graph)
+#### [Graph](/Graph)
 * [Dijkstra](/Graph/Dijkstra)
 * [MinimumSpanningTree](/Graph/MinimumSpanningTree)
 * [Topological](/Graph/Topological)
 
-    [1591.Strange Printer II](/Graph/Topological/src/_StrangePrinterII.java)    
+    [1591.Strange Printer II](/Graph/Topological/src/_StrangePrinterII.java)
+
+#### [Greedy](/Greedy)
+
+[134.Gas Station](/Greedy/134.Gas%20Station)
+[135.Candy](/Greedy/135.Candy)    
 
