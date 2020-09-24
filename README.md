@@ -15,5 +15,5 @@
 #### [Greedy](/Greedy)  
 [134.Gas Station](/Greedy/134.Gas%20Station)  
 [135.Candy](/Greedy/135.Candy)  
-[300](/Greedy/300.Longest%20Increasing%20Subsequence)  
+[300.Longest Increasing Subsequence](/Greedy/300.Longest%20Increasing%20Subsequence)  
 
