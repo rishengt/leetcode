@@ -8,8 +8,15 @@
     [1278.Palindrome Partitioning III](DP/区间型I/src/_1278_PalindromePartitioningIII.java)  
 
 #### [DFS](/byType/dfs)  
-[399. Evaluate Division](/byType/dfs/graph/399.%20Evaluate%20Division)
 [1600. Throne Inheritance](/byType/Design/1600.%20Throne%20Inheritance)  
+* ##### [String](/byType/dfs/string)  
+    [1593. Split a String Into the Max Number of Unique Substrings](byType/dfs/string/1593.%20Split%20a%20String%20Into%20the%20Max%20Number%20of%20Unique%20Substrings)  
+* ##### [Grid](byType/dfs/grid)
+    [980. Unique Paths III](byType/dfs/grid/980.%20Unique%20Paths%20III)  
+    [1594. Maximum Non Negative Produc in a Matrix](byType/dfs/grid/1594.%20Maximum%20Non%20Negative%20Produc%20in%20a%20Matrix)
+* ##### [Graph](byType/dfs/graph)
+    [399. Evaluate Division](/byType/dfs/graph/399.%20Evaluate%20Division)  
+
 
 
 #### [Graph](/byType/Graph)  
