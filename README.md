@@ -17,7 +17,7 @@
 * ##### [MinimumSpanningTree](/byType/Graph/MinimumSpanningTree)
 * ##### [Topological](/byType/Graph/Topological)  
     [269*. Alien Dictionary](/byType/Graph/Topological/269.%20Alien%20Dictionary)  
-* ##### [Union Find](/byType/Graph/Union Find)  
+* ##### [Union Find](/byType/Graph/Union%20Find)  
     
      
 #### [Tree](/byType/Tree)
@@ -33,6 +33,6 @@
 #### [HashMap的精妙用法](/byType/HashMap的精妙用法)  
 [560. Subarray Sum Equals K](/byType/HashMap的精妙用法/560.%20Subarray%20Sum%20Equals%20K)  
 
-#### [Sweep Line](/byType/Sweep Line)  
-[1109. Corporate Flight Bookings](/byType/Sweep Line/1109.%20Corporate%20Flight%20Bookings)  
-[1589. Maximum Sum Obtained of Any Permutation](/byType/Sweep Line/1589.%20Maximum%20Sum%20Obtained%20of%20Any%20Permutation)
+#### [Sweep Line](/byType/Sweep%20Line)  
+[1109. Corporate Flight Bookings](/byType/Sweep%20Line/1109.%20Corporate%20Flight%20Bookings)  
+[1589. Maximum Sum Obtained of Any Permutation](/byType/Sweep%20Line/1589.%20Maximum%20Sum%20Obtained%20of%20Any%20Permutation)
