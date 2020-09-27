@@ -1,4 +1,5 @@
 # 拓扑排序有两种模板
+## 切记拓扑建图的时候是先指向后。。。 map建图是key指向value, array就是index指向index里面的东西；
 ### 1.BFS
 这种应该是最常用的，是必须要掌握的，假设你有n个node并且知道vertex
 ```java
@@ -53,4 +54,3 @@ public boolean dfs(ArrayList<Integer>[] Graph, boolean[] visited, int cur){
     return true;
 }
 ```
-    
