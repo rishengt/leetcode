@@ -59,47 +59,19 @@ import java.util.*;
  * At most 10 calls will be made to getInheritanceOrder.
  */
 public class ThroneInheritance {
-    public static void main(String[] args) {
-        ThroneInheritance king = new ThroneInheritance("king");
-        king.birth("king","clyde");
-        System.out.println(king.getInheritanceOrder());
-        king.death("clyde");
-        king.birth("king","shannon");
-        king.birth("king","catherine");
-        king.birth("andy","matthew");
-        king.birth("bob","alex");
-        king.birth("bob","asha");
-        System.out.println(king.getInheritanceOrder());
-    }
-    Map<String, List<String>> adj = new HashMap<>();
-    Set<String> bad = new HashSet<>();
-    String root = "";
-    ThroneInheritance(String kingName) {
-        root = kingName;
-        adj.putIfAbsent(kingName,new ArrayList<>());
-    }
-
-    void birth(String parentName, String childName) {
-        adj.putIfAbsent(childName,new ArrayList<>());
-        adj.get(parentName).add(childName);
-    }
-
-    void death(String name) {
-        bad.add(name);
-    }
-
-    List<String> getInheritanceOrder() {
-        List<String> res = new ArrayList<>();
-        dfs(root, res);
-        return res;
-    }
-
-    void dfs(String u, List<String> res) {
-        if (bad.contains(u)) {
-            res.add(u);
-        }
-        for (String v : adj.get(u)) {
-            dfs(v, res);
-        }
-    }
+//    public ThroneInheritance(String kingName) {
+//
+//    }
+//
+//    public void birth(String parentName, String childName) {
+//
+//    }
+//
+//    public void death(String name) {
+//
+//    }
+//
+//    public List<String> getInheritanceOrder() {
+//
+//    }
 }

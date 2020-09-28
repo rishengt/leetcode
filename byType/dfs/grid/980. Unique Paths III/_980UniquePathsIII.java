@@ -41,7 +41,38 @@
 
 /**這道題與其用dp還不如dfs*/
 public class _980UniquePathsIII {
+    public static void main(String[] args) {
+        System.out.println(new _980UniquePathsIII().uniquePathsIII(new int[][]{{1,0,0,0},{0,0,0,0},{0,0,2,-1}}));
+    }
     public int uniquePathsIII(int[][] grid) {
-        return 0;
+        int empty = 1, si = 0, sj = 0;
+        for(int i = 0; i<grid.length; i++){
+            for(int j = 0; j<grid[0].length; j++){
+                if(grid[i][j] == 1){
+                    si = i;
+                    sj = j;
+                }else if(grid[i][j] == 0){
+                    empty++;
+                }
+            }
+        }
+        return dfs(grid,si,sj,empty);
+    }
+
+    public int dfs(int[][] grid, int i, int j, int empty){
+        int total = 0;
+        if(i<0 || i>=grid.length || j<0 || j>= grid[0].length || grid[i][j] < 0) return 0;
+        if(grid[i][j] == 2){
+            if(empty == 0){
+                return 1;
+            }
+            return 0;
+        }
+        grid[i][j] = -1;
+        empty --;
+        total = dfs(grid,i+1,j,empty)+dfs(grid,i-1,j,empty)+dfs(grid,i,j+1,empty)+dfs(grid,i,j-1,empty);
+        empty ++;
+        grid[i][j] = 0;
+        return total;
     }
 }

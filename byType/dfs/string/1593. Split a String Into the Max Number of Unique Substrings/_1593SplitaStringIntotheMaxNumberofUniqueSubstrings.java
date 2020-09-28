@@ -33,11 +33,27 @@
  * s contains only lower case English letters.
  */
 
+import javax.crypto.spec.PSource;
 import java.util.HashSet;
 import java.util.Set;
 
 public class _1593SplitaStringIntotheMaxNumberofUniqueSubstrings {
+    public static void main(String[] args) {
+        System.out.println(new _1593SplitaStringIntotheMaxNumberofUniqueSubstrings().maxUniqueSplit("ababccc"));
+    }
     public int maxUniqueSplit(String s){
-        return 0;
+        return dfs(s,0,new HashSet<String>());
+    }
+
+    public int dfs(String s, int start, HashSet<String> set){
+        int max = 0;
+        for(int i = start+1; i<=s.length(); i++){
+            if(!set.contains(s.substring(start,i))){
+                set.add(s.substring(start,i));
+                max = Math.max(max,1+dfs(s.substring(i),i+1,set));
+                set.remove(s.substring(start,i));
+            }
+        }
+        return max;
     }
 }
