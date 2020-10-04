@@ -27,22 +27,37 @@
 * ##### [Union Find](/byType/Graph/Union%20Find)  
     
      
-#### [Tree](/byType/Tree)
+#### [Tree](/byType/Tree)  
+[1602*. Find Nearest Right Node in Binary Tree](/byType/Tree/1602.%20Find%20Nearest%20Right%20Node%20in%20Binary%20Tree)  
 * ##### [BST](/byType/Tree/BST)  
     [285*.Inorder Successor in BST](/byType/Tree/BST/285.%20Inorder%20Successor%20in%20BST)  
     [510*. Inorder Successor in BSTII](/byType/Tree/BST/510.%20Inorder%20Successor%20in%20BST%20II)
 
 #### [Greedy](/Greedy)  
-* ##### [Two Pointer](/Greedy/Two%20Pointer)  
-    [209. Minimum Size Subarray Sum](/Greedy/Two%20Pointer/209.%20Minimum%20Size%20Subarray%20Sum)  
-    [713.Subarray Product Less Than K](/Greedy/Two%20Pointer/713.%20Subarray%20Product%20Less%20Than%20K)  
 [134.Gas Station](/Greedy/134.Gas%20Station)  
 [135.Candy](/Greedy/135.Candy)  
 [300.Longest Increasing Subsequence](/Greedy/300.Longest%20Increasing%20Subsequence)  
+* ##### [Two Pointer](/Greedy/Two%20Pointer)  
+    [209. Minimum Size Subarray Sum](/Greedy/Two%20Pointer/209.%20Minimum%20Size%20Subarray%20Sum)  
+    [713.Subarray Product Less Than K](/Greedy/Two%20Pointer/713.%20Subarray%20Product%20Less%20Than%20K)  
+
 
 #### [HashMap的精妙用法](/byType/HashMap的精妙用法)  
+[532. K-diff Pairs in an Array](/byType/HashMap的精妙用法/532.%20K-diff%20Pairs%20in%20an%20Array)  
 [560. Subarray Sum Equals K](/byType/HashMap的精妙用法/560.%20Subarray%20Sum%20Equals%20K)  
+[1604. Alert Using Same Key-Card Three or More Times in a One Hour Period](/byType/HashMap的精妙用法/1604.%20Alert%20Using%20Same%20Key-Card%20Three%20or%20More%20Times%20in%20a%20One%20Hour%20Period)  
 
 #### [Sweep Line](/byType/Sweep%20Line)  
 [1109. Corporate Flight Bookings](/byType/Sweep%20Line/1109.%20Corporate%20Flight%20Bookings)  
-[1589. Maximum Sum Obtained of Any Permutation](/byType/Sweep%20Line/1589.%20Maximum%20Sum%20Obtained%20of%20Any%20Permutation)
+[1589. Maximum Sum Obtained of Any Permutation](/byType/Sweep%20Line/1589.%20Maximum%20Sum%20Obtained%20of%20Any%20Permutation)  
+
+#### [Stack](/byType/Stack)  
+[772. Basic Calculator III](/byType/Stack/772.%20Basic%20Calculator%20III)
+[1597. Build Binary Expression Tree From Infix Expression](/byType/Stack/1597.%20Build%20Binary%20Expression%20Tree%20From%20Infix%20Expression)
+[503. Next Greater Element II](/byType/Stack/503.%20Next%20Greater%20Element%20II)
+[1019. Next Greater Node In Linked List](/byType/Stack/1019.%20Next%20Greater%20Node%20In%20Linked%20List)  
+[739. Daily Temperatures](/byType/Stack/739.%20Daily%20Temperatures)  
+
+#### [Math](/byType/Math)  
+* ##### [Random](/byType/Math/random)  
+    [470. Implement Rand10 using Rand7](/byType/Math/random/470.%20Implement%20Rand10%20using%20Rand7)
