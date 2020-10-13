@@ -29,14 +29,18 @@
      
 #### [Tree](/byType/Tree)  
 [1602*. Find Nearest Right Node in Binary Tree](/byType/Tree/1602.%20Find%20Nearest%20Right%20Node%20in%20Binary%20Tree)  
+[1245. Tree Diameter](/byType/Tree/1245.%20Tree%20Diameter)  
 * ##### [BST](/byType/Tree/BST)  
     [285*.Inorder Successor in BST](/byType/Tree/BST/285.%20Inorder%20Successor%20in%20BST)  
-    [510*. Inorder Successor in BSTII](/byType/Tree/BST/510.%20Inorder%20Successor%20in%20BST%20II)
+    [510*. Inorder Successor in BSTII](/byType/Tree/BST/510.%20Inorder%20Successor%20in%20BST%20II)  
+    [449. Serialize and Deserialize BST](/byType/Tree/BST/449.%20Serialize%20and%20Deserialize%20BST)  
 
 #### [Greedy](/Greedy)  
 [134.Gas Station](/Greedy/134.Gas%20Station)  
 [135.Candy](/Greedy/135.Candy)  
+[452. Minimum Number of Arrows to Burst Balloons](/Greedy/452.%20Minimum%20Number%20of%20Arrows%20to%20Burst%20Balloons)  
 [300.Longest Increasing Subsequence](/Greedy/300.Longest%20Increasing%20Subsequence)  
+[316. Remove Duplicate Letters](/Greedy/316.%20Remove%20Duplicate%20Letters)  
 * ##### [Two Pointer](/Greedy/Two%20Pointer)  
     [209. Minimum Size Subarray Sum](/Greedy/Two%20Pointer/209.%20Minimum%20Size%20Subarray%20Sum)  
     [713.Subarray Product Less Than K](/Greedy/Two%20Pointer/713.%20Subarray%20Product%20Less%20Than%20K)  
@@ -47,11 +51,16 @@
 [560. Subarray Sum Equals K](/byType/HashMap的精妙用法/560.%20Subarray%20Sum%20Equals%20K)  
 [1604. Alert Using Same Key-Card Three or More Times in a One Hour Period](/byType/HashMap的精妙用法/1604.%20Alert%20Using%20Same%20Key-Card%20Three%20or%20More%20Times%20in%20a%20One%20Hour%20Period)  
 
+#### [TreeMap and TreeSet](/byType/TreeMap%20and%20TreeSet)  
+[1606. Find Servers That Handled Most Number of Requests](/byType/TreeMap%20and%20TreeSet/1606.%20Find%20Servers%20That%20Handled%20Most%20Number%20of%20Requests)  
+
+
 #### [Sweep Line](/byType/Sweep%20Line)  
 [1109. Corporate Flight Bookings](/byType/Sweep%20Line/1109.%20Corporate%20Flight%20Bookings)  
 [1589. Maximum Sum Obtained of Any Permutation](/byType/Sweep%20Line/1589.%20Maximum%20Sum%20Obtained%20of%20Any%20Permutation)  
 
 #### [Stack](/byType/Stack)  
+[316. Remove Duplicate Letters](/Greedy/316.%20Remove%20Duplicate%20Letters)  
 [772. Basic Calculator III](/byType/Stack/772.%20Basic%20Calculator%20III)
 [1597. Build Binary Expression Tree From Infix Expression](/byType/Stack/1597.%20Build%20Binary%20Expression%20Tree%20From%20Infix%20Expression)
 [503. Next Greater Element II](/byType/Stack/503.%20Next%20Greater%20Element%20II)
@@ -59,5 +68,14 @@
 [739. Daily Temperatures](/byType/Stack/739.%20Daily%20Temperatures)  
 
 #### [Math](/byType/Math)  
+* ##### [Geometry](/byType/Math/Geometry)  
+    [1610. Maximum Number of Visible Points](/byType/Math/Geometry/1610.%20Maximum%20Number%20of%20Visible%20Points)  
 * ##### [Random](/byType/Math/random)  
-    [470. Implement Rand10 using Rand7](/byType/Math/random/470.%20Implement%20Rand10%20using%20Rand7)
+    [470. Implement Rand10 using Rand7](/byType/Math/random/470.%20Implement%20Rand10%20using%20Rand7)  
+    
+#### [Bit](/byType/Bit)  
+[89. Gray Code]
+[1009. Complement of Base 10 Integer](/byType/Bit/1009.%20Complement%20of%20Base%2010%20Integer)  
+
+#### [奇技淫巧]  
+[157. Read N Characters Given Read4](/byName/src/157)
