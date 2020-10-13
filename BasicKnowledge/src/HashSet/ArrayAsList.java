@@ -52,7 +52,7 @@ public class ArrayAsList {
         System.out.println(set3.size());// 1
         System.out.println(set4.size());//1
         System.out.println(set5.size());//2
-        System.out.println(Arrays.asList(1,2,3) == Arrays.asList(1,2,3));/**HashSet 可以用于排列顺序一样的 且里面存放的是八大基本类型的 Arraylist 以去重**/
+        System.out.println(Arrays.asList(1,2,3) == Arrays.asList(1,2,3));/**HashSet 可以用于排列顺序一样的 且里面存放的是八大基本类型跟String的 Arraylist 以去重**/
         System.out.println(Arrays.asList(1,2,3).equals(Arrays.asList(1,2,3)));
     }
 

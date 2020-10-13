@@ -78,4 +78,6 @@
 [1009. Complement of Base 10 Integer](/byType/Bit/1009.%20Complement%20of%20Base%2010%20Integer)  
 
 #### [奇技淫巧]  
-[157. Read N Characters Given Read4](/byName/src/157)
+[157. Read N Characters Given Read4](/byName/src/157)  
+
+#### [Divide and Conquer](/byType/Divide%20and%20Conquer)  
