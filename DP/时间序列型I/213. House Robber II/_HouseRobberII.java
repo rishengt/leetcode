@@ -27,7 +27,7 @@
  * 1 <= nums.length <= 100
  * 0 <= nums[i] <= 1000
  */
-public class HouseRobberII {
+public class _HouseRobberII {
     public int rob(int[] nums) {
         int N = nums.length;
         int dp[][] = new int[N+1][2];
