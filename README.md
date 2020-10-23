@@ -62,6 +62,7 @@
 
 #### [Stack](/byType/Stack)  
 [316. Remove Duplicate Letters](/Greedy/316.%20Remove%20Duplicate%20Letters)  
+[456. 132 Pattern](/byType/Stack/456.%20132%20Pattern)  
 [772. Basic Calculator III](/byType/Stack/772.%20Basic%20Calculator%20III)
 [1597. Build Binary Expression Tree From Infix Expression](/byType/Stack/1597.%20Build%20Binary%20Expression%20Tree%20From%20Infix%20Expression)
 [503. Next Greater Element II](/byType/Stack/503.%20Next%20Greater%20Element%20II)
