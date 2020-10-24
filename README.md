@@ -2,10 +2,13 @@
 ## 为了更好地检索以及归纳  
 *只是leetcode的会员题，没什么特殊含义。。
 #### [DP](/DP)  
+* ##### [基本型I](/DP/基本型I)  
+    [300. Longest Increasing Subsequence](/DP/基本型II/300.%20Longest%20Increasing%20Subsequence)  
 * ##### [双序列型](/DP/双序列型)  
     [1143.LongestCommonSubsequence]()
 * ##### [区间型I](/DP/区间型I)    
     [1278.Palindrome Partitioning III](DP/区间型I/src/_1278_PalindromePartitioningIII.java)  
+* ##### []
 
 #### [DFS](/byType/dfs)  
 [1600. Throne Inheritance](/byType/Design/1600.%20Throne%20Inheritance)  
@@ -42,6 +45,7 @@
 [452. Minimum Number of Arrows to Burst Balloons](/Greedy/452.%20Minimum%20Number%20of%20Arrows%20to%20Burst%20Balloons)  
 [300.Longest Increasing Subsequence](/Greedy/300.Longest%20Increasing%20Subsequence)  
 [316. Remove Duplicate Letters](/Greedy/316.%20Remove%20Duplicate%20Letters)  
+[948. Bag of Tokens](/Greedy/948.%20Bag%20of%20Tokens)  
 * ##### [Two Pointer](/Greedy/Two%20Pointer)  
     [209. Minimum Size Subarray Sum](/Greedy/Two%20Pointer/209.%20Minimum%20Size%20Subarray%20Sum)  
     [713.Subarray Product Less Than K](/Greedy/Two%20Pointer/713.%20Subarray%20Product%20Less%20Than%20K)  
