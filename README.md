@@ -2,8 +2,9 @@
 ## 为了更好地检索以及归纳  
 *只是leetcode的会员题，没什么特殊含义。。
 #### [DP](/DP)  
-* ##### [基本型I](/DP/基本型I)  
+* ##### [基本型II](/DP/基本型II)  
     [300. Longest Increasing Subsequence](/DP/基本型II/300.%20Longest%20Increasing%20Subsequence)  
+    [1626. Best Team With No Conflicts](/DP/基本型II/1626.%20Best%20Team%20With%20No%20Conflicts)  
 * ##### [双序列型](/DP/双序列型)  
     [1143.LongestCommonSubsequence]()
 * ##### [区间型I](/DP/区间型I)    
@@ -24,7 +25,8 @@
 
 
 #### [Graph](/byType/Graph)  
-* ##### [Dijkstra](/byType/Graph/Dijkstra)
+* ##### [Dijkstra](/byType/Graph/Dijkstra)  
+    [1631. Path With Minimum Effort](/byType/Graph/Dijkstra/1631.%20Path%20With%20Minimum%20Effort)  
 * ##### [MinimumSpanningTree](/byType/Graph/MinimumSpanningTree)
 * ##### [Topological](/byType/Graph/Topological)  
     [269*. Alien Dictionary](/byType/Graph/Topological/269.%20Alien%20Dictionary)  
@@ -89,3 +91,4 @@
 
 
 #### [Divide and Conquer](/byType/Divide%20and%20Conquer)  
+[148. Sort List](/byType/Divide%20and%20Conquer/148.%20Sort%20List)  

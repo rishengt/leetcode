@@ -1,3 +1,4 @@
+import java.util.*;
 /**
  * You are the manager of a basketball team. For the upcoming tournament, you want to choose the team with the highest overall score.
  * The score of the team is the sum of scores of all the players in the team.
@@ -37,6 +38,22 @@
  */
 public class BestTeamWithNoConflicts {
     public int bestTeamScore(int[] scores, int[] ages) {
-
+        int rank[][] = new int[scores.length][2];
+        for(int i = 0; i<scores.length; i++){
+            rank[i] = new int[]{ages[i],scores[i]};
+        }
+        Arrays.sort(rank,(a,b)->a[0] == b[0]?a[1]-b[1]:a[0]-b[0]);
+        int dp[] = new int[rank.length];
+        int ans = 0;
+        for(int i = 0; i<rank.length; i++){
+            dp[i] = rank[i][1];
+            for(int j = 0; j<i; j++){
+                if(rank[i][1]>=rank[j][1]) {
+                    dp[i] = Math.max(dp[i], dp[j] + rank[i][1]);
+                }
+            }
+            ans = Math.max(ans,dp[i]);
+        }
+        return ans;
     }
 }
