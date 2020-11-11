@@ -15,6 +15,7 @@
 [1600. Throne Inheritance](/byType/Design/1600.%20Throne%20Inheritance)  
 * ##### [String](/byType/dfs/string)  
     [1593. Split a String Into the Max Number of Unique Substrings](byType/dfs/string/1593.%20Split%20a%20String%20Into%20the%20Max%20Number%20of%20Unique%20Substrings)  
+    [1641. Count Sorted Vowel Strings](byType/dfs/string/1641.%20Count%20Sorted%20Vowel%20Strings)  
 * ##### [Grid](byType/dfs/grid)
     [980. Unique Paths III](byType/dfs/grid/980.%20Unique%20Paths%20III)  
     [1594. Maximum Non Negative Produc in a Matrix](byType/dfs/grid/1594.%20Maximum%20Non%20Negative%20Produc%20in%20a%20Matrix)
@@ -30,13 +31,16 @@
 * ##### [MinimumSpanningTree](/byType/Graph/MinimumSpanningTree)
 * ##### [Topological](/byType/Graph/Topological)  
     [269*. Alien Dictionary](/byType/Graph/Topological/269.%20Alien%20Dictionary)  
+    [310. Minimum Height Trees](/byType/Graph/Topological/310.%20Minimum%20Height%20Trees)  
 * ##### [Union Find](/byType/Graph/Union%20Find)  
     
      
 #### [Tree](/byType/Tree)  
+[563. Binary Tree Tilt](/byType/Tree/563.%20Binary%20Tree%20Tilt)  
 [1602*. Find Nearest Right Node in Binary Tree](/byType/Tree/1602.%20Find%20Nearest%20Right%20Node%20in%20Binary%20Tree)  
 [1245. Tree Diameter](/byType/Tree/1245.%20Tree%20Diameter)  
 * ##### [BST](/byType/Tree/BST)  
+    [99. Recover Binary Search Tree](/byType/Tree/BST/99.%20Recover%20Binary%20Search%20Tree)  
     [285*.Inorder Successor in BST](/byType/Tree/BST/285.%20Inorder%20Successor%20in%20BST)  
     [510*. Inorder Successor in BSTII](/byType/Tree/BST/510.%20Inorder%20Successor%20in%20BST%20II)  
     [449. Serialize and Deserialize BST](/byType/Tree/BST/449.%20Serialize%20and%20Deserialize%20BST)  
@@ -92,3 +96,6 @@
 
 #### [Divide and Conquer](/byType/Divide%20and%20Conquer)  
 [148. Sort List](/byType/Divide%20and%20Conquer/148.%20Sort%20List)  
+
+#### [Binary Search](/byType/Binary%20Search)  
+[1283. Find the Smallest Divisor Given a Threshold](/byType/Binary%20Search/1283.%20Find%20the%20Smallest%20Divisor%20Given%20a%20Threshold)  
