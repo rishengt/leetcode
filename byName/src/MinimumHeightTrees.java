@@ -38,7 +38,7 @@
 import java.util.*;
 public class MinimumHeightTrees {
     public static void main(String[] args) {
-        System.out.println(new MinimumHeightTrees().findMinHeightTrees(4,new int[][]{{1,0},{1,2},{1,3}}));
+        System.out.println(new _310_MinimumHeightTrees().findMinHeightTrees(4,new int[][]{{1,0},{1,2},{1,3}}));
 //        System.out.println(new MinimumHeightTrees().findMinHeightTrees(6,new int[][]{{0,3},{1,3},{2,3},{4,3},{5,4}}));
     }
     public List<Integer> findMinHeightTrees(int n, int[][] edges) {

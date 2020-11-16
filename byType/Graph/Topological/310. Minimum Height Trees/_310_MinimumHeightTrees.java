@@ -42,7 +42,7 @@ import java.util.*;
  * All the pairs (ai, bi) are distinct.
  * The given input is guaranteed to be a tree and there will be no repeated edges.
  */
-public class MinimumHeightTrees {
+public class _310_MinimumHeightTrees {
     public List<Integer> findMinHeightTrees(int n, int[][] edges) {
         if(n == 1) return Arrays.asList(0);
         if(n==2) return Arrays.asList(0,1);

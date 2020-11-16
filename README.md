@@ -23,7 +23,12 @@
     [399. Evaluate Division](/byType/dfs/graph/399.%20Evaluate%20Division)  
     [133. Clone Graph](/byType/dfs/graph/133.%20Clone%20Graph)  
 
+#### [BFS]  
+[1654. Minimum Jumps to Reach Home](/byType/bfs/1654.%20Minimum%20Jumps%20to%20Reach%20Home)  
 
+#### [Two Pointer]  
+* ##### [快慢]  
+    [845. Longest Mountain in Array](/byType/Two%20Pointer/fast%20slow/845.%20Longest%20Mountain%20in%20Array)  
 
 #### [Graph](/byType/Graph)  
 * ##### [Dijkstra](/byType/Graph/Dijkstra)  
@@ -36,6 +41,7 @@
     
      
 #### [Tree](/byType/Tree)  
+[116. Populating Next Right Pointers in Each Node](/byType/Tree/116.%20Populating%20Next%20Right%20Pointers%20in%20Each%20Node)  
 [563. Binary Tree Tilt](/byType/Tree/563.%20Binary%20Tree%20Tilt)  
 [1602*. Find Nearest Right Node in Binary Tree](/byType/Tree/1602.%20Find%20Nearest%20Right%20Node%20in%20Binary%20Tree)  
 [1245. Tree Diameter](/byType/Tree/1245.%20Tree%20Diameter)  
@@ -57,10 +63,13 @@
     [713.Subarray Product Less Than K](/Greedy/Two%20Pointer/713.%20Subarray%20Product%20Less%20Than%20K)  
 
 
-#### [HashMap的精妙用法](/byType/HashMap的精妙用法)  
-[532. K-diff Pairs in an Array](/byType/HashMap的精妙用法/532.%20K-diff%20Pairs%20in%20an%20Array)  
-[560. Subarray Sum Equals K](/byType/HashMap的精妙用法/560.%20Subarray%20Sum%20Equals%20K)  
-[1604. Alert Using Same Key-Card Three or More Times in a One Hour Period](/byType/HashMap的精妙用法/1604.%20Alert%20Using%20Same%20Key-Card%20Three%20or%20More%20Times%20in%20a%20One%20Hour%20Period)  
+#### [HashMap跟Prefix的精妙用法](/byType/HashMap跟Prefix的精妙用法)  
+[532. K-diff Pairs in an Array](/byType/HashMap跟Prefix的精妙用法/532.%20K-diff%20Pairs%20in%20an%20Array)  
+[560. Subarray Sum Equals K](/byType/HashMap跟Prefix的精妙用法/560.%20Subarray%20Sum%20Equals%20K)  
+[1604. Alert Using Same Key-Card Three or More Times in a One Hour Period](/byType/HashMap跟Prefix的精妙用法/1604.%20Alert%20Using%20Same%20Key-Card%20Three%20or%20More%20Times%20in%20a%20One%20Hour%20Period)  
+* ##### Prefix  
+    [1653. Minimum Deletions to Make String Balanced](/byType/HashMap跟Prefix的精妙用法/1653.%20Minimum%20Deletions%20to%20Make%20String%20Balanced)  
+    [1658. Minimum Operations to Reduce X to Zero](/byType/HashMap跟Prefix的精妙用法/1658.%20Minimum%20Operations%20to%20Reduce%20X%20to%20Zero)  
 
 #### [TreeMap and TreeSet](/byType/TreeMap%20and%20TreeSet)  
 [1606. Find Servers That Handled Most Number of Requests](/byType/TreeMap%20and%20TreeSet/1606.%20Find%20Servers%20That%20Handled%20Most%20Number%20of%20Requests)  
@@ -78,6 +87,7 @@
 [503. Next Greater Element II](/byType/Stack/503.%20Next%20Greater%20Element%20II)
 [1019. Next Greater Node In Linked List](/byType/Stack/1019.%20Next%20Greater%20Node%20In%20Linked%20List)  
 [739. Daily Temperatures](/byType/Stack/739.%20Daily%20Temperatures)  
+[1653. Minimum Deletions to Make String Balanced](/byType/Stack/1653.%20Minimum%20Deletions%20to%20Make%20String%20Balanced)  
 
 #### [Math](/byType/Math)  
 * ##### [Geometry](/byType/Math/Geometry)  
