@@ -1,5 +1,3 @@
-import javax.swing.*;
-
 /**
  * Given an array of integers arr of even length n and an integer k.
  *
@@ -56,7 +54,7 @@ public class CheckIfArrayPairsAreDivisiblebyk {
      */
 
     public static void main(String[] args) {
-        System.out.println(new CheckIfArrayPairsAreDivisiblebyk().canArrange(new int[]{1,2,3,4,5,10,6,7,8,9},5));
+        System.out.println(new _CheckIfArrayPairsAreDivisiblebyk().canArrange(new int[]{1,2,3,4,5,10,6,7,8,9},5));
     }
     public boolean canArrange(int[] arr, int k) {
         int[] frequency = new int[k];

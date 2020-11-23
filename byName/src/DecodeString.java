@@ -40,8 +40,13 @@ public class DecodeString {
         int num = 0;
         while (!queue.isEmpty()) {
             char c= queue.poll();
+            StringBuilder sb2 = new StringBuilder();
             if (Character.isDigit(c)) {
-                num = c-'0';
+                sb2.append(c);
+                while(!queue.isEmpty() && Character.isDigit(queue.peek())){
+                    sb2.append(queue.poll());
+                }
+                num =Integer.valueOf(sb2.toString());
             } else if (c == '[') {
                 String sub = helper(queue);
                 for (int i = 0; i < num; i++) sb.append(sub);

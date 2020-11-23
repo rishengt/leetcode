@@ -64,4 +64,27 @@ public class HouseRobberII {
         }
         return dp_i;
     }
+
+    /****** 2维DP ************/
+    public int rob(int[] nums) {
+        int N = nums.length;
+        int dp[][] = new int[N+1][2];
+        dp[0][0] = 0;
+        dp[0][1] = nums[0];
+        for(int i = 1; i<nums.length-1; i++){
+            dp[i][0] = Math.max(dp[i-1][0],dp[i-1][1]);
+            dp[i][1] = dp[i-1][0]+nums[i];
+        }
+        /**这个 -2 是非常关键的一步*/
+        int ret = Math.max(dp[nums.length-2][1],dp[nums.length-2][0]);
+
+        /**要是从第二间房开始抢**/
+        dp[1][0] = 0;
+        dp[1][1] = nums[1];
+        for(int i = 2; i<nums.length; i++){
+            dp[i][0] = Math.max(dp[i-1][0], dp[i-1][1]);
+            dp[i][1] = dp[i-1][0]+nums[i];
+        }
+        return Math.max(ret, Math.max(dp[N-1][1],dp[N-1][0]));
+    }
 }
