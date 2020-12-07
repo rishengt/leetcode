@@ -1,14 +1,14 @@
 # leetcode
 ## 为了更好地检索以及归纳  
 *只是leetcode的会员题，没什么特殊含义。。
-#### [DP](/DP)  
-* ##### [基本型II](/DP/基本型II)  
-    [300. Longest Increasing Subsequence](/DP/基本型II/300.%20Longest%20Increasing%20Subsequence)  
-    [1626. Best Team With No Conflicts](/DP/基本型II/1626.%20Best%20Team%20With%20No%20Conflicts)  
-* ##### [双序列型](/DP/双序列型)  
+#### [DP](/byType/DP)  
+* ##### [基本型II](/byType/DP/基本型II)  
+    [300. Longest Increasing Subsequence](/byType/DP/基本型II/300.%20Longest%20Increasing%20Subsequence)  
+    [1626. Best Team With No Conflicts](/byType/DP/基本型II/1626.%20Best%20Team%20With%20No%20Conflicts)  
+* ##### [双序列型](/byType/DP/双序列型)  
     [1143.LongestCommonSubsequence]()
-* ##### [区间型I](/DP/区间型I)    
-    [1278.Palindrome Partitioning III](DP/区间型I/src/_1278_PalindromePartitioningIII.java)  
+* ##### [区间型I](/byType/DP/区间型I)    
+    [1278.Palindrome Partitioning III](/byType/DP/区间型I/src/_1278_PalindromePartitioningIII.java)  
 * ##### []
 
 #### [DFS](/byType/dfs)  
@@ -51,16 +51,16 @@
     [510*. Inorder Successor in BSTII](/byType/Tree/BST/510.%20Inorder%20Successor%20in%20BST%20II)  
     [449. Serialize and Deserialize BST](/byType/Tree/BST/449.%20Serialize%20and%20Deserialize%20BST)  
 
-#### [Greedy](/Greedy)  
-[134.Gas Station](/Greedy/134.Gas%20Station)  
-[135.Candy](/Greedy/135.Candy)  
-[452. Minimum Number of Arrows to Burst Balloons](/Greedy/452.%20Minimum%20Number%20of%20Arrows%20to%20Burst%20Balloons)  
-[300.Longest Increasing Subsequence](/Greedy/300.Longest%20Increasing%20Subsequence)  
-[316. Remove Duplicate Letters](/Greedy/316.%20Remove%20Duplicate%20Letters)  
-[948. Bag of Tokens](/Greedy/948.%20Bag%20of%20Tokens)  
-* ##### [Two Pointer](/Greedy/Two%20Pointer)  
-    [209. Minimum Size Subarray Sum](/Greedy/Two%20Pointer/209.%20Minimum%20Size%20Subarray%20Sum)  
-    [713.Subarray Product Less Than K](/Greedy/Two%20Pointer/713.%20Subarray%20Product%20Less%20Than%20K)  
+#### [Greedy](/byType/Greedy)  
+[134.Gas Station](/byType/Greedy/134.Gas%20Station)  
+[135.Candy](/byType/Greedy/135.Candy)  
+[452. Minimum Number of Arrows to Burst Balloons](/byType/Greedy/452.%20Minimum%20Number%20of%20Arrows%20to%20Burst%20Balloons)  
+[300.Longest Increasing Subsequence](/byType/Greedy/300.Longest%20Increasing%20Subsequence)  
+[316. Remove Duplicate Letters](/byType/Greedy/316.%20Remove%20Duplicate%20Letters)  
+[948. Bag of Tokens](/byType/Greedy/948.%20Bag%20of%20Tokens)  
+* ##### [Two Pointer](/byType/Greedy/Two%20Pointer)  
+    [209. Minimum Size Subarray Sum](/byType/Greedy/Two%20Pointer/209.%20Minimum%20Size%20Subarray%20Sum)  
+    [713.Subarray Product Less Than K](/byType/Greedy/Two%20Pointer/713.%20Subarray%20Product%20Less%20Than%20K)  
 
 
 #### [HashMap跟Prefix的精妙用法](/byType/HashMap跟Prefix的精妙用法)  
@@ -102,6 +102,8 @@
 #### [奇技淫巧]  
 [61. Rotate List](/byName/src/61)  
 [157. Read N Characters Given Read4](/byName/src/157)  
+* ##### [KMP](/byType/KMP)  
+    [214. Shortest Palindrome](/byType/KMP/214.%20Shortest%20Palindrome)  
 
 
 #### [Divide and Conquer](/byType/Divide%20and%20Conquer)  

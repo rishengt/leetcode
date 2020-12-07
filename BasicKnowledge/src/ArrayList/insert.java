@@ -11,5 +11,6 @@ public class insert {
         k.add(1,3);
         /** add( index, element ) 就是 insert 咯，O(n) 操作*/
         k.addAll(b);
+        k.remove(0);
     }
 }

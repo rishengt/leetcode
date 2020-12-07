@@ -8,5 +8,7 @@ public class ceilling {
         map.ceilingKey(""); /**ceiling 是返回 最小的大于等于 参数 key 的key， higher 只能大于*/
         map.higherEntry("");
         map.remove("");/**大概所有java集合类都会有remove方法吧*/
+        map.floorEntry("");
+        map.lowerKey("");
     }
 }

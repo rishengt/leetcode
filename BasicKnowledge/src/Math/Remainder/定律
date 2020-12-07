@@ -8,3 +8,4 @@ then sum(array) % k = 0
 
 if a%k = b%k = c, then (a-b)%k = 0;
 if a%k + b%k = k, then (a+b)%k = 0;
+

@@ -22,7 +22,7 @@ import java.util.*;
  */
 public class BasicCalculator {
     public static void main(String[] args) {
-        System.out.println(new BasicCalculator().calculate("-2-1 + 2"));
+        System.out.println(new BasicCalculator().calculate("3/2"));
         System.out.println(new BasicCalculator().calculate("(1+(4+5+2)-3)+(6+8)"));
     }
     public int calculate(String s) {
