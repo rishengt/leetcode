@@ -42,6 +42,7 @@
      
 #### [Tree](/byType/Tree)  
 [116. Populating Next Right Pointers in Each Node](/byType/Tree/116.%20Populating%20Next%20Right%20Pointers%20in%20Each%20Node)  
+[117. Populating Next Right Pointers in Each Node II](/byType/Tree/117.%20Populating%20Next%20Right%20Pointers%20in%20Each%20Node%20II)  
 [563. Binary Tree Tilt](/byType/Tree/563.%20Binary%20Tree%20Tilt)  
 [1602*. Find Nearest Right Node in Binary Tree](/byType/Tree/1602.%20Find%20Nearest%20Right%20Node%20in%20Binary%20Tree)  
 [1245. Tree Diameter](/byType/Tree/1245.%20Tree%20Diameter)  
@@ -58,6 +59,7 @@
 [300.Longest Increasing Subsequence](/byType/Greedy/300.Longest%20Increasing%20Subsequence)  
 [316. Remove Duplicate Letters](/byType/Greedy/316.%20Remove%20Duplicate%20Letters)  
 [948. Bag of Tokens](/byType/Greedy/948.%20Bag%20of%20Tokens)  
+[1702. Maximum Binary String After Change](/byType/Greedy/1702.%20Maximum%20Binary%20String%20After%20Change)  
 * ##### [Two Pointer](/byType/Greedy/Two%20Pointer)  
     [209. Minimum Size Subarray Sum](/byType/Greedy/Two%20Pointer/209.%20Minimum%20Size%20Subarray%20Sum)  
     [713.Subarray Product Less Than K](/byType/Greedy/Two%20Pointer/713.%20Subarray%20Product%20Less%20Than%20K)  
@@ -94,7 +96,8 @@
     [1610. Maximum Number of Visible Points](/byType/Math/Geometry/1610.%20Maximum%20Number%20of%20Visible%20Points)  
 * ##### [Random](/byType/Math/random)  
     [470. Implement Rand10 using Rand7](/byType/Math/random/470.%20Implement%20Rand10%20using%20Rand7)  
-    
+* ##### [Remainder](/byType/Math/Remainder) 
+    [1479. Check If Array Pairs Are Divisible by k](/byType/Math/Remainder/1497.%20Check%20If%20Array%20Pairs%20Are%20Divisible%20by%20k)      
 #### [Bit](/byType/Bit)  
 [89. Gray Code]
 [1009. Complement of Base 10 Integer](/byType/Bit/1009.%20Complement%20of%20Base%2010%20Integer)  

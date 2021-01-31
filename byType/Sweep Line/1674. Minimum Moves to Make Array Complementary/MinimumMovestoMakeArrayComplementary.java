@@ -37,7 +37,29 @@
  * n is even.
  */
 public class MinimumMovestoMakeArrayComplementary {
-//    public int minMoves(int[] nums, int limit) {
-//
-//    }
+    public static void main(String[] args) {
+        System.out.println(new MinimumMovestoMakeArrayComplementary().minMoves(new int[]{37,2,9,49,58,57,48,17},58));
+    }
+    public int minMoves(int[] nums, int limit) {
+        int[] sweep = new int[2*limit+2];
+        int n = nums.length;
+        int ans = Integer.MAX_VALUE;
+        for(int i = 0; i<nums.length/2; i++){
+            int left = i;
+            int right = n-i-1;
+            sweep[2]+=2;
+            sweep[Math.min(nums[left],nums[right])+1]-=1;
+            sweep[nums[left]+nums[right]] -=1;
+            sweep[nums[left]+nums[right]+1] +=1;
+            sweep[Math.max(nums[left], nums[right])+limit+1] +=1;
+//            sweep[2*limit]+=1;
+        }
+        for(int i = 0; i<sweep.length-1; i++){
+            sweep[i+1] += sweep[i];
+        }
+        for(int i = 2; i<=2*limit; i++){
+            ans = Math.min(ans,sweep[i]);
+        }
+        return ans;
+    }
 }
