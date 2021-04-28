@@ -33,6 +33,7 @@
 #### [Graph](/byType/Graph)  
 * ##### [Dijkstra](/byType/Graph/Dijkstra)  
     [1631. Path With Minimum Effort](/byType/Graph/Dijkstra/1631.%20Path%20With%20Minimum%20Effort)  
+    [1786. Number of Restricted Paths From First to Last Node](/byType/Graph/Dijkstra/1786.%20Number%20of%20Restricted%20Paths%20From%20First%20to%20Last%20Node)  
 * ##### [MinimumSpanningTree](/byType/Graph/MinimumSpanningTree)
 * ##### [Topological](/byType/Graph/Topological)  
     [269*. Alien Dictionary](/byType/Graph/Topological/269.%20Alien%20Dictionary)  
