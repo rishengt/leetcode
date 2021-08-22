@@ -2,7 +2,7 @@ package String;
 
 /**
  * https://dzone.com/articles/java-string-format-examples
- * 个人觉得String.format()其实记不住太多，只能要用的时候自己去👆的网址看了。。。
+ * 个人觉得String.Date.format()其实记不住太多，只能要用的时候自己去👆的网址看了。。。
  */
 
 public class format {

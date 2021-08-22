@@ -22,7 +22,7 @@ import java.util.*;
  *
  * 1 <= keyName.length, keyTime.length <= 105
  * keyName.length == keyTime.length
- * keyTime are in the format "HH:MM".
+ * keyTime are in the Date.format "HH:MM".
  * [keyName[i], keyTime[i]] is unique.
  * 1 <= keyName[i].length <= 10
  * keyName[i] contains only lowercase English letters.

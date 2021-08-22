@@ -4,8 +4,8 @@
  *   1. The hostname of the host that made the request.
  *   2. this next column's values are missing and described by a hyphen(i.e., -).
  *   3. This next column's values are missing and described by a hyphen(i.e., -).
- *   4. A timestamp enclosed in square brackets following the format [DD/mmm/YYYY:HH:MM:SS -0400], where DD is the day of the month, mmm is the name
- *      of the month, YYYY is the year, HH:MM:SS is the time in 24-hour format, and -0400 is the time zone,
+ *   4. A timestamp enclosed in square brackets following the Date.format [DD/mmm/YYYY:HH:MM:SS -0400], where DD is the day of the month, mmm is the name
+ *      of the month, YYYY is the year, HH:MM:SS is the time in 24-hour Date.format, and -0400 is the time zone,
  *   5. The request, enclosed in quotes(e.g., "GET/images/NASA-logosmall.gif HTTP/1.0").
  *   6. The HTTP response code.
  *   7. The total number of bytes sent in their response:

@@ -1,4 +1,6 @@
 package Iterator;
+import javafx.util.Pair;
+
 import java.util.*;
 public class iterator {
     public static void main(String[] args) {
@@ -17,4 +19,5 @@ public class iterator {
         System.out.println(it.next());
         System.out.println(it.hasNext());
     }
+
 }

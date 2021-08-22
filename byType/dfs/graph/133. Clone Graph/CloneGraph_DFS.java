@@ -12,7 +12,7 @@ import java.util.*;
  * }
  *
  *
- * Test case format:
+ * Test case Date.format:
  *
  * For simplicity sake, each node's value is the same as the node's index (1-indexed). For example, the first node with val = 1,
  * the second node with val = 2, and so on. The graph is represented in the test case using an adjacency list.
